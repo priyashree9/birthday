@@ -1,78 +1,394 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Happy Birthday Priyashree ❤️</title>
-<meta property="og:title" content="Happy Birthday Priyashree ❤️">
-<meta property="og:description" content="A little surprise waiting for you ❤️">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">❤️</text></svg>'>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<style>
-*{box-sizing:border-box}body{margin:0;min-height:100dvh;display:flex;justify-content:center;align-items:flex-start;padding:40px 10px;background:#ffeef2;font-family:Quicksand,sans-serif;overflow:auto;user-select:none}
-body::before{content:"❤ ❤ ❤ ❤ ❤";position:fixed;left:-20%;top:-10%;font-size:2rem;opacity:.08;animation:f 18s linear infinite;pointer-events:none}
-@keyframes f{to{transform:translate(140vw,120vh) rotate(360deg)}}
-.container{background:#fff;max-width:420px;width:90%;padding:30px 20px;border-radius:24px;box-shadow:0 10px 30px rgba(214,51,132,.15);transition:.5s transform,.5s opacity}
-h1{font:normal 2.2rem "Great Vibes",cursive;color:#d63384;margin:10px 0 20px}
-.math{background:#fff0f5;padding:20px;border-radius:16px;font-weight:700}.math hr{height:2px;border:0;background:#d63384}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:15px;margin-top:20px}
-button{padding:15px;border:2px solid #ff4d6d;border-radius:40px;background:#fff;color:#ff4d6d;font-weight:700;cursor:pointer;transition:.2s}
-button:hover:not(:disabled){background:#ff4d6d;color:#fff;transform:scale(1.05)}
-button:disabled{opacity:.6;cursor:not-allowed}
-.error{animation:s .4s;background:#ffb3c1!important;color:#fff!important}
-@keyframes s{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-5px)}40%,60%{transform:translateX(5px)}}
-.msg{line-height:1.7;color:#555}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Priyashree ❤️</title>
+  <style>
+    :root{
+      --bg1:#0f1226;
+      --bg2:#1a1f3d;
+      --card:#141832cc;
+      --text:#f4f6ff;
+      --muted:#c9cdef;
+      --accent:#ffcc66;
+      --accent2:#ff6fb1;
+      --line:#ffffff1a;
+      --shadow: 0 14px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 20% 10%, #2b2f63 0%, transparent 60%),
+                  radial-gradient(900px 650px at 80% 30%, #4a235a 0%, transparent 55%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+    }
+    .container{max-width:900px;margin:0 auto;padding:28px 16px 40px;}
+    .hero{text-align:center;margin:18px 0 18px;}
+    h1{margin:0 0 10px;font-size:clamp(26px,4vw,44px);letter-spacing:.2px;}
+    .sub{margin:0;color:var(--muted);font-size:clamp(15px,2vw,18px);line-height:1.5;}
+    
+    .card{
+      margin:18px auto; padding:22px;
+      border:1px solid var(--line);
+      background:var(--card);
+      box-shadow:var(--shadow);
+      border-radius:var(--radius);
+      backdrop-filter: blur(10px);
+      max-width: 500px;
+    }
+    .card.big{padding:26px; max-width: 600px;}
+    
+    /* User's custom math box styling */
+    .math-box {
+      font-family: Consolas, monospace;
+      text-align: left;
+      background: #00000025;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 30px;
+      margin: 14px auto 24px;
+      width: fit-content;
+      font-size: 18px;
+      color: var(--text);
+    }
+    .math-box p {
+      margin: 8px 0;
+      letter-spacing: 1px;
+    }
+    .math-box p:first-child,
+    .math-box p:last-child {
+      margin-left: 22px;
+    }
+    .math-box hr {
+      border: 0;
+      border-top: 2px solid var(--accent2);
+      margin: 12px 0;
+    }
+
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:12px;justify-content:center;padding:14px 0 4px;}
+    .choice{
+      appearance:none; border:1px solid var(--line);
+      background:linear-gradient(180deg,#ffffff18,#ffffff08);
+      color:var(--text); padding:14px 18px; font-size:16px; font-weight: 600;
+      border-radius:14px; cursor:pointer; min-width:88px;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    .choice:hover{transform:translateY(-2px);border-color:#ffffff2c;box-shadow:0 10px 30px rgba(0,0,0,.25);}
+    .choice:active{transform:translateY(0);}
+    .hint{text-align:center;min-height:22px;color:var(--accent2);margin:15px 0 0;font-weight:600;}
+    
+    .footer{text-align:center;margin-top:18px;color:#ffffff88;font-size:13px;}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 12px; border-radius:999px; font-weight:800;
+      background:#2dffb31a; border:1px solid #2dffb34d; color:#b9ffe6;
+      margin-bottom:12px;
+    }
+    .sep{border:0;border-top:1px solid var(--line);margin:18px 0;}
+    .lead{color:var(--muted);font-size:17px;line-height:1.55;}
+    .tiny{font-size: 15px;color: var(--muted);line-height: 1.6;}
+
+    /* --- Views / Slider --- */
+    .view{display:none;}
+    .view.active{display:block;}
+    .card.big{display:flex;flex-direction:column;}
+    
+    .slider{
+      position:relative;
+      overflow:hidden;
+      border-radius: calc(var(--radius) - 2px);
+      min-height: 40vh;
+      flex: 1;
+    }
+    .track{
+      display:flex;
+      transition: transform 380ms ease;
+      will-change: transform;
+      position:relative;
+    }
+    .slide{
+      min-width:100%;
+      padding: 18px 6px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      position:relative;
+      animation: fadeIn 420ms ease both;
+    }
+    
+    @keyframes fadeIn{
+      from{ opacity: 0; transform: translateY(6px); }
+      to{ opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Confetti canvas --- */
+    #confettiCanvas{
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+    
+    @media (max-width: 480px){
+      .options{grid-template-columns: 1fr;}
+    }
+  </style>
 </head>
 <body>
-<div class="container" id="card">
-<h1>Solve this to unlock a surprise ❤️</h1>
-<div class="math"><p>mein terah = 13</p><p>+ mein terah = 13</p><hr><p>mein terah mein terah = ?</p></div>
-<div class="grid">
-<button data-a="13" aria-label="Option A">A) 13</button>
-<button data-a="16" aria-label="Option B">B) 16</button>
-<button data-a="26" aria-label="Option C">C) 26</button>
-<button data-a="29" aria-label="Option D">D) 29</button>
-</div>
-</div>
-<script>
-document.addEventListener("DOMContentLoaded",()=>{
- if(sessionStorage.getItem("unlocked")==="true"){show();return;}
- document.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>check(+b.dataset.a,b)));
-});
-function check(ans,btn){
- if(ans===26){
-  sessionStorage.setItem("unlocked","true");
-  document.querySelectorAll("button").forEach(b=>b.disabled=true);
-  show();
- }else{
-  btn.classList.add("error");
-  setTimeout(()=>btn.classList.remove("error"),400);
- }
-}
-function fire(){
- if(typeof confetti!=="function")return;
- const end=Date.now()+2500;
- (function frame(){
-  confetti({particleCount:4,angle:60,spread:55,origin:{x:0}});
-  confetti({particleCount:4,angle:120,spread:55,origin:{x:1}});
-  if(Date.now()<end)requestAnimationFrame(frame);
- })();
-}
-function show(){
- const c=document.getElementById("card");
- c.style.opacity=0;c.style.transform="scale(.95)";
- setTimeout(()=>{
-  c.innerHTML=`<h1>Happy 26th Birthday Priyashree! ❤️✨</h1>
-  <p class="msg">Yayyy! You got it right, my smart girl! 🎉<br><br>
-  Welcome to your special birthday website. I have so much more planned for you here.<br><br>
-  <em>(Next surprises loading soon...)</em> 🥺❤️</p>`;
-  c.style.opacity=1;c.style.transform="scale(1)";
-  fire();
- },500);
-}
-</script>
-</body></html>
+  <main class="container">
+
+    <!-- VIEW 1: QUESTION -->
+    <section id="view-question" class="view active">
+      <header class="hero">
+        <h1>Solve this to unlock a surprise ❤️</h1>
+        <p class="sub">Just a quick little logic puzzle...</p>
+      </header>
+
+      <section class="card">
+        
+        <!-- Updated Math Box -->
+        <div class="math-box">
+          <p>mein terah = 13</p>
+          <p>+ mein terah = 13</p>
+          <hr>
+          <p>mein terah mein terah = ?</p>
+        </div>
+
+        <div class="options" role="group" aria-label="Answer choices">
+          <button class="choice" data-answer="13">A) 13</button>
+          <button class="choice" data-answer="16">B) 16</button>
+          <button class="choice" data-answer="26">C) 26</button>
+          <button class="choice" data-answer="29">D) 29</button>
+        </div>
+
+        <p id="hint" class="hint" aria-live="polite"></p>
+      </section>
+
+      <footer class="footer">
+        <span>Made with ❤️ by Sudhamsh</span>
+      </footer>
+    </section>
+
+    <!-- VIEW 2: “PAGES” AFTER CORRECT -->
+    <section id="view-pages" class="view">
+      <section class="card big">
+
+        <div class="slider" aria-label="Birthday pages slider">
+          <div id="track" class="track">
+
+            <!-- PAGE 1 (More pages will be added here later) -->
+            <div class="slide">
+              <div class="badge">✅ Correct!</div>
+              <h1>Happy 26th Birthday Priyashree! ❤️✨</h1>
+              <p class="tiny">✨💛✨</p>
+              <p class="sub">Yessss! You just made me the happiest person alive! 🎉</p>
+              <hr class="sep" style="width: 100%;" />
+              <p class="lead">
+                Welcome to your special birthday website.<br /><br />
+                <em>(Next surprises loading soon...)</em> 🥺❤️
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <footer class="footer">
+        <button id="backToQuestion" class="choice" style="min-width:auto; margin-top: 10px;">← Back to riddle</button>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- Full-screen confetti overlay -->
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <script>
+  (function () {
+    const viewQuestion = document.getElementById("view-question");
+    const viewPages = document.getElementById("view-pages");
+    const hint = document.getElementById("hint");
+    const choices = document.querySelectorAll(".choice[data-answer]");
+    const backToQuestion = document.getElementById("backToQuestion");
+
+    // ---------- Stage-cannon confetti ----------
+    const confetti = (() => {
+      const canvas = document.getElementById("confettiCanvas");
+      const ctx = canvas.getContext("2d");
+
+      let W = 0, H = 0, dpr = 1;
+      let particles = [];
+      let raf = null;
+      let running = false;
+
+      function resize() {
+        dpr = Math.max(1, window.devicePixelRatio || 1);
+        canvas.width = Math.floor(window.innerWidth * dpr);
+        canvas.height = Math.floor(window.innerHeight * dpr);
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        W = window.innerWidth;
+        H = window.innerHeight;
+      }
+
+      function rand(min, max){ return Math.random() * (max - min) + min; }
+
+      const colors = ["#ffcc66", "#ff6fb1", "#b9ffe6", "#ffffff", "#c9cdef", "#ffd1e8", "#ffe7a3"];
+
+      function makeParticle(x, y, angleRad, speed) {
+        const isStreamer = Math.random() < 0.22;
+        const w = isStreamer ? rand(2, 4) : rand(4, 8);
+        const h = isStreamer ? rand(18, 34) : rand(6, 12);
+
+        return {
+          x, y,
+          vx: Math.cos(angleRad) * speed + rand(-0.6, 0.6),
+          vy: Math.sin(angleRad) * speed + rand(-0.6, 0.6),
+          g: rand(0.12, 0.18),
+          rot: rand(0, Math.PI * 2),
+          vr: rand(-0.18, 0.18),
+          w, h,
+          color: colors[(Math.random() * colors.length) | 0],
+          life: rand(160, 240),
+          age: 0,
+          drag: rand(0.985, 0.995)
+        };
+      }
+
+      function drawParticle(p) {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+        ctx.restore();
+      }
+
+      function step() {
+        ctx.clearRect(0, 0, W, H);
+        particles = particles.filter(p => p.age < p.life);
+
+        for (const p of particles) {
+          p.vx *= p.drag;
+          p.vy *= p.drag;
+          p.vy += p.g;
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.vr;
+          p.age++;
+
+          const t = 1 - (p.age / p.life);
+          ctx.globalAlpha = Math.max(0, Math.min(1, t));
+          drawParticle(p);
+          ctx.globalAlpha = 1;
+        }
+
+        if (particles.length) raf = requestAnimationFrame(step);
+        else stop();
+      }
+
+      function start() {
+        if (running) return;
+        running = true;
+        canvas.style.opacity = "1";
+        raf = requestAnimationFrame(step);
+      }
+
+      function stop() {
+        running = false;
+        canvas.style.opacity = "0";
+        if (raf) cancelAnimationFrame(raf);
+        raf = null;
+        particles = [];
+      }
+
+      function burstCannons() {
+        resize();
+        const leftX = W * 0.10;
+        const rightX = W * 0.90;
+        const y = H * 0.82;
+
+        function emit(x, baseAngle, spread, count) {
+          for (let i = 0; i < count; i++) {
+            const a = baseAngle + rand(-spread, spread);
+            const speed = rand(7.5, 12.5);
+            particles.push(makeParticle(x + rand(-10, 10), y + rand(-8, 8), a, speed));
+          }
+        }
+
+        const deg = (d) => d * Math.PI / 180;
+        emit(leftX, deg(-55), deg(18), 95);
+        emit(rightX, deg(-125), deg(18), 95);
+
+        const centerX = W * 0.50;
+        emit(centerX, deg(-90), deg(20), 45);
+
+        start();
+      }
+
+      window.addEventListener("resize", () => { if (running) resize(); });
+
+      return { burstCannons };
+    })();
+    // -------------------------------------------------------
+
+    function show(which) {
+      if (which === "pages") {
+        viewQuestion.classList.remove("active");
+        viewPages.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        
+        // Fire confetti on correct answer
+        confetti.burstCannons();
+        setTimeout(() => confetti.burstCannons(), 500); 
+
+      } else {
+        viewPages.classList.remove("active");
+        viewQuestion.classList.add("active");
+        if (hint) hint.textContent = "";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    // Answer buttons Logic
+    choices.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const ans = btn.getAttribute("data-answer");
+        
+        if (ans === "26") {
+          show("pages");
+        } else {
+          if (hint) hint.textContent = "Hehe not quite! Try again, Sweety 💕";
+          // Shake animation for incorrect answer
+          btn.animate(
+            [
+              { transform: "translateX(0)", borderColor: "#ff6fb1", backgroundColor: "rgba(255,111,177,0.2)" },
+              { transform: "translateX(-6px)" },
+              { transform: "translateX(6px)" },
+              { transform: "translateX(0)", borderColor: "var(--line)", backgroundColor: "transparent" }
+            ],
+            { duration: 250, iterations: 1 }
+          );
+        }
+      });
+    });
+
+    backToQuestion.addEventListener("click", () => show("question"));
+  })();
+  </script>
+</body>
+</html>
