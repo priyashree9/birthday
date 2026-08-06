@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Birthday Priyashree ❤️</title>
+<meta property="og:title" content="Happy Birthday Priyashree ❤️">
+<meta property="og:description" content="A little surprise waiting for you ❤️">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">❤️</text></svg>'>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100dvh;display:flex;justify-content:center;align-items:flex-start;padding:40px 10px;background:#ffeef2;font-family:Quicksand,sans-serif;overflow:auto;user-select:none}
+body::before{content:"❤ ❤ ❤ ❤ ❤";position:fixed;left:-20%;top:-10%;font-size:2rem;opacity:.08;animation:f 18s linear infinite;pointer-events:none}
+@keyframes f{to{transform:translate(140vw,120vh) rotate(360deg)}}
+.container{background:#fff;max-width:420px;width:90%;padding:30px 20px;border-radius:24px;box-shadow:0 10px 30px rgba(214,51,132,.15);transition:.5s transform,.5s opacity}
+h1{font:normal 2.2rem "Great Vibes",cursive;color:#d63384;margin:10px 0 20px}
+.math{background:#fff0f5;padding:20px;border-radius:16px;font-weight:700}.math hr{height:2px;border:0;background:#d63384}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:15px;margin-top:20px}
+button{padding:15px;border:2px solid #ff4d6d;border-radius:40px;background:#fff;color:#ff4d6d;font-weight:700;cursor:pointer;transition:.2s}
+button:hover:not(:disabled){background:#ff4d6d;color:#fff;transform:scale(1.05)}
+button:disabled{opacity:.6;cursor:not-allowed}
+.error{animation:s .4s;background:#ffb3c1!important;color:#fff!important}
+@keyframes s{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-5px)}40%,60%{transform:translateX(5px)}}
+.msg{line-height:1.7;color:#555}
+</style>
+</head>
+<body>
+<div class="container" id="card">
+<h1>Solve this to unlock a surprise ❤️</h1>
+<div class="math"><p>mein terah = 13</p><p>+ mein terah = 13</p><hr><p>mein terah mein terah = ?</p></div>
+<div class="grid">
+<button data-a="13" aria-label="Option A">A) 13</button>
+<button data-a="16" aria-label="Option B">B) 16</button>
+<button data-a="26" aria-label="Option C">C) 26</button>
+<button data-a="29" aria-label="Option D">D) 29</button>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ if(sessionStorage.getItem("unlocked")==="true"){show();return;}
+ document.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>check(+b.dataset.a,b)));
+});
+function check(ans,btn){
+ if(ans===26){
+  sessionStorage.setItem("unlocked","true");
+  document.querySelectorAll("button").forEach(b=>b.disabled=true);
+  show();
+ }else{
+  btn.classList.add("error");
+  setTimeout(()=>btn.classList.remove("error"),400);
+ }
+}
+function fire(){
+ if(typeof confetti!=="function")return;
+ const end=Date.now()+2500;
+ (function frame(){
+  confetti({particleCount:4,angle:60,spread:55,origin:{x:0}});
+  confetti({particleCount:4,angle:120,spread:55,origin:{x:1}});
+  if(Date.now()<end)requestAnimationFrame(frame);
+ })();
+}
+function show(){
+ const c=document.getElementById("card");
+ c.style.opacity=0;c.style.transform="scale(.95)";
+ setTimeout(()=>{
+  c.innerHTML=`<h1>Happy 26th Birthday Priyashree! ❤️✨</h1>
+  <p class="msg">Yayyy! You got it right, my smart girl! 🎉<br><br>
+  Welcome to your special birthday website. I have so much more planned for you here.<br><br>
+  <em>(Next surprises loading soon...)</em> 🥺❤️</p>`;
+  c.style.opacity=1;c.style.transform="scale(1)";
+  fire();
+ },500);
+}
+</script>
+</body></html>
