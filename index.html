@@ -667,7 +667,7 @@
       globalPageNav.innerHTML = "";
 
       // Show up to 10 page numbers. If there are more, use an ellipsis.
-      const maxVisible = 10;
+      const maxVisible = 20;
       const visiblePages = totalPages <= maxVisible
         ? Array.from({length: totalPages}, (_, i) => i + 1)
         : Array.from({length: maxVisible}, (_, i) => i + 1);
@@ -855,7 +855,10 @@
     });
 
     showMemory(0, false);
-    restartMemoryTimer();
+    // Wait 3 seconds before starting the automatic slideshow
+    setTimeout(() => {
+      restartMemoryTimer();
+    }, 3000);
 
     // ---------- Stage-cannon confetti ----------
     const confetti = (() => {
