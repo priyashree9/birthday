@@ -685,6 +685,27 @@
               </div>
             </div>
 
+            <!-- PAGE 8: Birthday song -->
+            <div class="slide text-page" data-footer="A little song for you, Priyashree ❤️">
+              <h1 class="photo-title">A little song for you ❤️🎶</h1>
+              <p class="tiny">✨🎵✨</p>
+
+              <video
+                id="songVideo"
+                class="birthday-video"
+                src="song.mp4"
+                controls
+                playsinline
+                preload="metadata"
+              ></video>
+
+              <div class="romantic-quote">
+                <p><strong>This song is just for you, Priyashree ❤️</strong></p>
+                <p>May your birthday be filled with love, beautiful moments, and all the happiness you deserve. ✨</p>
+                <p><strong>Keep smiling, keep shining, and always stay this wonderful. 💛</strong></p>
+              </div>
+            </div>
+
             <!-- PAGE 8 -->
             <div class="slide text-page" data-footer="One more heartfelt page ❤️">
               <h1 class="photo-title">For you, always ❤️</h1>
@@ -833,7 +854,8 @@
     const birthdayVideos = [
       document.getElementById("birthdayVideo"),
       document.getElementById("wishingVideo"),
-      document.getElementById("snacksVideo")
+      document.getElementById("snacksVideo"),
+      document.getElementById("songVideo")
     ].filter(Boolean);
     let currentSlide = 0;
 
@@ -964,7 +986,8 @@
       const videoForSlide = {
         3: birthdayVideos[0],
         4: birthdayVideos[1],
-        5: birthdayVideos[2]
+        5: birthdayVideos[2],
+        6: birthdayVideos[3]
       }[currentSlide];
 
       if (videoForSlide) {
