@@ -92,6 +92,153 @@
     .lead{color:var(--muted);font-size:17px;line-height:1.55;}
     .tiny{font-size: 15px;color: var(--muted);line-height: 1.6;}
 
+    .birthday-photo{
+      width:100%;
+      max-width:520px;
+      display:block;
+      margin:8px auto 12px;
+      border-radius:16px;
+      border:1px solid #ffffff2c;
+      box-shadow:0 12px 35px rgba(0,0,0,.35);
+    }
+
+    .photo-title{
+      margin:0 0 8px;
+      font-size:clamp(24px,4vw,38px);
+    }
+
+    .photo-caption{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+      margin:4px 0;
+    }
+
+    .message-box{
+      width:100%;
+      max-width:680px;
+      padding:20px 22px;
+      margin:8px auto;
+      text-align:left;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      background:linear-gradient(180deg,#ff6fb112,#ffffff06);
+      border:1px solid #ff6fb14d;
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,.16);
+    }
+
+    .message-box p{
+      margin:0 0 18px;
+    }
+
+    .message-box p:last-child{
+      margin-bottom:0;
+    }
+
+    .message-box strong{
+      color:var(--text);
+    }
+
+    .signature{
+      align-self:flex-start;
+      width:100%;
+      max-width:680px;
+      text-align:left;
+      color:var(--muted);
+      line-height:1.7;
+      margin:6px auto 0;
+    }
+
+    .signature strong{
+      color:var(--accent);
+    }
+
+    .final-page{
+      min-height:60vh;
+    }
+
+    .slider-controls{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .slider-btn{
+      width:42px;
+      height:42px;
+      min-width:42px;
+      padding:0;
+      border-radius:50%;
+      font-size:20px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .slide-footer{
+      min-height:20px;
+      margin-top:10px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .page-nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:7px;
+      margin-top:10px;
+      padding:4px 8px;
+    }
+
+    .page-number{
+      width:30px;
+      height:30px;
+      min-width:30px;
+      padding:0;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:rgba(255,255,255,0.04);
+      color:var(--muted);
+      cursor:pointer;
+      font-size:13px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition:all 180ms ease;
+    }
+
+    .page-number:hover{
+      border-color:var(--accent);
+      color:var(--text);
+      transform:translateY(-1px);
+    }
+
+    .page-number.active{
+      background:var(--accent);
+      border-color:var(--accent);
+      color:#171a2e;
+      transform:scale(1.05);
+    }
+
+    .page-ellipsis{
+      color:var(--muted);
+      padding:0 2px;
+      font-size:13px;
+      line-height:30px;
+    }
+@media (max-width: 480px){
+      .birthday-photo{max-width:100%;}
+      .message-box{padding:17px 16px;font-size:14px;line-height:1.6;}
+      .final-page{min-height:58vh;}
+    }
+
     /* --- Views / Slider --- */
     .view{display:none;}
     .view.active{display:block;}
@@ -143,6 +290,113 @@
     @media (max-width: 480px){
       .options{grid-template-columns: 1fr;}
     }
+  
+    /* ---------- 20-photo memory gallery ---------- */
+    .memory-gallery{
+      width:min(100%, 680px);
+      margin:0 auto;
+      position:relative;
+    }
+
+    .memory-frame{
+      position:relative;
+      width:100%;
+      aspect-ratio:4/3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border:2px solid rgba(255,255,255,.16);
+      border-radius:18px;
+      background:rgba(0,0,0,.18);
+      box-shadow:0 12px 35px rgba(0,0,0,.25);
+    }
+
+    .memory-image{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      user-select:none;
+      -webkit-user-drag:none;
+      transition:opacity 180ms ease;
+    }
+
+    .memory-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:3;
+      width:46px;
+      height:46px;
+      min-width:46px;
+      padding:0;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(15,18,45,.72);
+      color:#fff;
+      font-size:25px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      backdrop-filter:blur(5px);
+      transition:all 180ms ease;
+    }
+
+    .memory-arrow:hover{
+      background:rgba(255,255,255,.18);
+      border-color:var(--accent);
+      transform:translateY(-50%) scale(1.08);
+    }
+
+    .memory-arrow.left{left:12px}
+    .memory-arrow.right{right:12px}
+
+    .memory-counter{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:600;
+      text-align:center;
+    }
+
+    .memory-progress{
+      display:flex;
+      justify-content:center;
+      gap:5px;
+      flex-wrap:wrap;
+      margin-top:9px;
+    }
+
+    .memory-dot{
+      width:7px;
+      height:7px;
+      min-width:7px;
+      padding:0;
+      border:0;
+      border-radius:50%;
+      background:rgba(255,255,255,.22);
+      cursor:pointer;
+    }
+
+    .memory-dot.active{
+      background:var(--accent);
+      transform:scale(1.25);
+    }
+
+    @media (max-width:600px){
+      .memory-frame{aspect-ratio:3/4}
+      .memory-arrow{
+        width:40px;
+        height:40px;
+        min-width:40px;
+        font-size:21px;
+      }
+      .memory-arrow.left{left:8px}
+      .memory-arrow.right{right:8px}
+    }
+
   </style>
 </head>
 <body>
@@ -187,8 +441,8 @@
         <div class="slider" aria-label="Birthday pages slider">
           <div id="track" class="track">
 
-            <!-- PAGE 1 (More pages will be added here later) -->
-            <div class="slide">
+            <!-- PAGE 2: Correct answer / birthday welcome -->
+            <div class="slide" data-footer="Yessss... more surprises 💛">
               <div class="badge">✅ Correct!</div>
               <h1>Happy 26th Birthday Priyashree! ❤️✨</h1>
               <p class="tiny">✨💛✨</p>
@@ -196,12 +450,183 @@
               <hr class="sep" style="width: 100%;" />
               <p class="lead">
                 Welcome to your special birthday website.<br /><br />
-                <em>(Next surprises loading soon...)</em> 🥺❤️
+                <em>There are more surprises waiting for you...</em> 🥺❤️
+              </p>
+            </div>
+
+            <!-- PAGE 3: Birthday photo -->
+            <div class="slide" data-footer="A little memory for you 💛">
+              <h1 class="photo-title">Wish you a very Happiest 26th Birthday, Priyashree 🎂</h1>
+              <p class="tiny">✨💛✨</p>
+
+              <!-- This file is expected to be in the same folder as index.html -->
+              <img
+                class="birthday-photo"
+                src="priyashree_26.png"
+                alt="Birthday celebration for Priyashree"
+              />
+
+              <p class="photo-caption">
+                Me and our darling Prabhas celebrating your birthday, Priyashree 😁🤍🎂
+              </p>
+
+              <p class="photo-caption">
+                May God bless you with sound knowledge and good health for the rest of your life.
+              </p>
+
+              <p class="photo-caption">
+                And may your smile stay exactly like this and light up this entire world... forever 💛
+              </p>
+            </div>
+            <!-- PAGE 4: 20-photo memory slideshow -->
+            <div class="slide" data-footer="A little collection of memories ❤️">
+              <h1 class="photo-title">Our little memories ❤️</h1>
+              <p class="tiny">✨❤️✨</p>
+
+              <div class="memory-gallery" aria-label="20-photo memory slideshow">
+                <div class="memory-frame">
+                  <button id="memoryPrev"
+                          class="memory-arrow left"
+                          type="button"
+                          aria-label="Previous photo">←</button>
+
+                  <img
+                    id="memoryImage"
+                    class="memory-image"
+                    src="zz (1).jpeg"
+                    alt="Memory photo 1 of 20"
+                    draggable="false"
+                  />
+
+                  <button id="memoryNext"
+                          class="memory-arrow right"
+                          type="button"
+                          aria-label="Next photo">→</button>
+                </div>
+
+                <div id="memoryCounter" class="memory-counter" aria-live="polite">
+                  1 / 20
+                </div>
+
+                <div id="memoryProgress"
+                     class="memory-progress"
+                     aria-label="Select a memory photo"></div>
+              </div>
+            </div>
+
+
+
+
+            <!-- PAGE 5 -->
+            <div class="slide text-page" data-footer="One more heartfelt page ❤️">
+              <h1 class="photo-title">For you, always ❤️</h1>
+              <p class="tiny">✨❤️✨</p>
+
+              <div class="message-box">
+                <p>
+                  Sometimes I wonder if you truly understand how much you mean to me. You’re not just someone special...
+                  you’re someone who changed the way I see the world. Your kindness, your heart, your smile they’ve quietly
+                  become a part of my everyday happiness.
+                </p>
+
+                <p>
+                  There are moments when I catch myself feeling grateful for you for no reason at all... just grateful that you
+                  exist. That I get to know you. That I get to celebrate you today.
+                </p>
+
+                <p>
+                  I hope this year gives you back even a fraction of the love, warmth, and comfort you bring into my life
+                  without even trying. You deserve a kind of happiness that feels safe, steady, and endless.
+                </p>
+
+                <p><strong>And I hope you always remember... you are deeply cherished.</strong> 🤍</p>
+              </div>
+            </div>
+
+            <!-- PAGE 6 -->
+            <div class="slide text-page" data-footer="Niiice... you’re almost there Priyashree 💋">
+              <h1 class="photo-title">Happy Birthday, my favorite soul ❤️</h1>
+              <p class="tiny">✨❤️✨</p>
+
+              <div class="message-box">
+                <p>
+                  Happy Birthday to the most precious soul I know. You have this quiet magic about you, the way you smile,
+                  the way you care, the way you simply exist, it makes everything around you feel warmer.
+                </p>
+
+                <p>
+                  I don’t think you even realize how much light you bring into people’s lives... especially mine. I hope today
+                  hugs you the way your presence hugs my heart. I hope you feel loved in ways that are gentle, deep, and undeniable.
+                </p>
+
+                <p>
+                  Thank you for being you. There’s no one else in this world I’d rather celebrate. 🤍✨
+                </p>
+              </div>
+            </div>
+
+            <!-- PAGE 7 -->
+            <div class="slide text-page" data-footer="Last one... read slowly 💋">
+              <h1 class="photo-title">My heart’s truth ❤️</h1>
+              <p class="tiny">✨❤️✨</p>
+
+              <div class="message-box">
+                <p>
+                  Happy Birthday. I don’t think you truly understand what you mean to me. You walked into my life so gently,
+                  but somehow you became one of the most important parts of it.
+                </p>
+
+                <p>
+                  There are days when I don’t say it out loud, but I carry this silent gratitude in my heart, gratitude that you
+                  exist, that you are who you are, and that you care the way you do. You have this rare kind of heart... the kind
+                  that makes people feel safe, seen, and valued. You’ve done that for me more times than you’ll ever know.
+                </p>
+
+                <p>
+                  If life ever feels heavy for you, I hope you remember that somewhere in this world, there is someone who
+                  thanks God for your existence. Someone who feels lucky just to know you.
+                </p>
+
+                <p>
+                  I hope this year holds you gently. I hope it protects your softness. And I hope you never forget how deeply
+                  you are cherished, not just today, but every single day.
+                </p>
+
+                <p><strong>Happy Birthday to a soul I will always be grateful for.</strong> 🤍</p>
+              </div>
+            </div>
+
+            <!-- PAGE 8 -->
+            <div class="slide text-page final-page" data-footer="That’s it Priyashree 💋">
+              <h1 class="photo-title">Okay okay... now the final one 😊💌</h1>
+              <p class="tiny">✨❤️✨</p>
+
+              <div class="message-box final-message">
+                <p>
+                  <strong>Last but not the least 😁</strong><br>
+                  You’ve successfully completed <strong>26%</strong> of your life... and the next <strong>74%</strong> is going
+                  to be a beautiful adventure with even more happiness and joy... because <strong>Sudhamsh is here now,
+                  Priyashree</strong> 😉💋
+                </p>
+
+                <p>Thank you for existing, coming into my life and being you Priyashree 🤍</p>
+              </div>
+
+              <p class="signature">
+                Always yours,<br>
+                <strong>Sudhamsh 💛</strong>
               </p>
             </div>
 
           </div>
         </div>
+
+        <div class="slider-controls" aria-label="Birthday page navigation">
+          <button id="prevSlide" class="choice slider-btn" aria-label="Previous page">←</button>
+          <button id="nextSlide" class="choice slider-btn" aria-label="Next page">→</button>
+        </div>
+        <div id="slideFooter" class="slide-footer" aria-live="polite"></div>
+
 
       </section>
 
@@ -209,10 +634,13 @@
         <button id="backToQuestion" class="choice" style="min-width:auto; margin-top: 10px;">← Back to riddle</button>
       </footer>
     </section>
+    <!-- GLOBAL PAGE NAVIGATION -->
+    <nav id="globalPageNav" class="page-nav" aria-label="Navigate to page"></nav>
 
   </main>
 
   <!-- Full-screen confetti overlay -->
+
   <canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
   <script>
@@ -222,6 +650,212 @@
     const hint = document.getElementById("hint");
     const choices = document.querySelectorAll(".choice[data-answer]");
     const backToQuestion = document.getElementById("backToQuestion");
+
+    const track = document.getElementById("track");
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const prevSlide = document.getElementById("prevSlide");
+    const nextSlide = document.getElementById("nextSlide");
+    const slideFooter = document.getElementById("slideFooter");
+    const globalPageNav = document.getElementById("globalPageNav");
+    let currentSlide = 0;
+
+    // Page 1 = riddle. Page 4 = 20-photo memory slideshow. Pages 2..N = birthday pages.
+    const totalPages = slides.length + 1;
+
+    // ---------- Numbered page navigation ----------
+    function buildPageNav() {
+      globalPageNav.innerHTML = "";
+
+      // Show up to 10 page numbers. If there are more, use an ellipsis.
+      const maxVisible = 10;
+      const visiblePages = totalPages <= maxVisible
+        ? Array.from({length: totalPages}, (_, i) => i + 1)
+        : Array.from({length: maxVisible}, (_, i) => i + 1);
+
+      visiblePages.forEach((page) => {
+        const btn = document.createElement("button");
+        btn.className = "page-number";
+        btn.textContent = page;
+        btn.setAttribute("aria-label", `Go to page ${page}`);
+        btn.addEventListener("click", () => goToPage(page));
+        globalPageNav.appendChild(btn);
+      });
+
+      if (totalPages > maxVisible) {
+        const ellipsis = document.createElement("span");
+        ellipsis.className = "page-ellipsis";
+        ellipsis.textContent = "…";
+        ellipsis.setAttribute("aria-hidden", "true");
+        globalPageNav.appendChild(ellipsis);
+
+        const last = document.createElement("button");
+        last.className = "page-number";
+        last.textContent = totalPages;
+        last.setAttribute("aria-label", `Go to page ${totalPages}`);
+        last.addEventListener("click", () => goToPage(totalPages));
+        globalPageNav.appendChild(last);
+      }
+
+      updatePageNav();
+    }
+
+    function updatePageNav() {
+      const currentPage = viewPages.classList.contains("active")
+        ? currentSlide + 2
+        : 1;
+
+      globalPageNav.querySelectorAll(".page-number").forEach((btn) => {
+        btn.classList.toggle("active", Number(btn.textContent) === currentPage);
+      });
+    }
+
+    function goToPage(page) {
+      if (page === 1) {
+        show("question", false);
+        return;
+      }
+
+      show("pages", false);
+      goToSlide(page - 2);
+    }
+
+    buildPageNav();
+
+    // ---------- Birthday page slider ----------
+    if (slideFooter) {
+      slideFooter.textContent = slides[0].dataset.footer || "";
+    }
+
+    function goToSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      if (slideFooter) {
+        slideFooter.textContent = slides[currentSlide].dataset.footer || "";
+      }
+
+      updatePageNav();
+    }
+
+    prevSlide.addEventListener("click", () => goToSlide(currentSlide - 1));
+    nextSlide.addEventListener("click", () => goToSlide(currentSlide + 1));
+
+
+    // ---------- 20-photo memory slideshow ----------
+    const memoryImages = Array.from(
+      { length: 20 },
+      (_, i) => `zz (${i + 1}).jpeg`
+    );
+
+    const memoryImage = document.getElementById("memoryImage");
+    const memoryPrev = document.getElementById("memoryPrev");
+    const memoryNext = document.getElementById("memoryNext");
+    const memoryCounter = document.getElementById("memoryCounter");
+    const memoryProgress = document.getElementById("memoryProgress");
+
+    let memoryIndex = 0;
+    let memoryTimer = null;
+    let memoryPaused = false;
+
+    memoryImages.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.className = "memory-dot" + (index === 0 ? " active" : "");
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Show memory photo ${index + 1}`);
+
+      dot.addEventListener("click", () => {
+        showMemory(index);
+        restartMemoryTimer();
+      });
+
+      memoryProgress.appendChild(dot);
+    });
+
+    function showMemory(index, animate = true) {
+      memoryIndex = (index + memoryImages.length) % memoryImages.length;
+
+      const changeImage = () => {
+        memoryImage.src = memoryImages[memoryIndex];
+        memoryImage.alt =
+          `Memory photo ${memoryIndex + 1} of ${memoryImages.length}`;
+
+        memoryCounter.textContent =
+          `${memoryIndex + 1} / ${memoryImages.length}`;
+
+        memoryProgress.querySelectorAll(".memory-dot").forEach((dot, i) => {
+          dot.classList.toggle("active", i === memoryIndex);
+        });
+
+        memoryImage.style.opacity = "1";
+      };
+
+      if (animate) {
+        memoryImage.style.opacity = "0";
+        setTimeout(changeImage, 140);
+      } else {
+        changeImage();
+      }
+    }
+
+    function restartMemoryTimer() {
+      clearInterval(memoryTimer);
+
+      memoryTimer = setInterval(() => {
+        // Overall Page 4 corresponds to slider index 2:
+        // Page 2=index 0, Page 3=index 1, Page 4=index 2.
+        if (
+          !memoryPaused &&
+          viewPages.classList.contains("active") &&
+          currentSlide === 2
+        ) {
+          showMemory(memoryIndex + 1);
+        }
+      }, 4000);
+    }
+
+    memoryPrev.addEventListener("click", () => {
+      showMemory(memoryIndex - 1);
+      restartMemoryTimer();
+    });
+
+    memoryNext.addEventListener("click", () => {
+      showMemory(memoryIndex + 1);
+      restartMemoryTimer();
+    });
+
+    memoryImage.addEventListener("mouseenter", () => {
+      memoryPaused = true;
+    });
+
+    memoryImage.addEventListener("mouseleave", () => {
+      memoryPaused = false;
+    });
+
+    // Swipe support on phones/tablets.
+    let memoryTouchStartX = 0;
+
+    memoryImage.addEventListener("touchstart", (event) => {
+      memoryTouchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+
+    memoryImage.addEventListener("touchend", (event) => {
+      const deltaX =
+        event.changedTouches[0].clientX - memoryTouchStartX;
+
+      if (Math.abs(deltaX) > 45) {
+        showMemory(memoryIndex + (deltaX < 0 ? 1 : -1));
+        restartMemoryTimer();
+      }
+    }, { passive: true });
+
+    // Preload the remaining photos for smoother automatic transitions.
+    memoryImages.slice(1).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    showMemory(0, false);
+    restartMemoryTimer();
 
     // ---------- Stage-cannon confetti ----------
     const confetti = (() => {
@@ -346,22 +980,24 @@
     })();
     // -------------------------------------------------------
 
-    function show(which) {
+    function show(which, celebrate = true) {
       if (which === "pages") {
         viewQuestion.classList.remove("active");
         viewPages.classList.add("active");
         window.scrollTo({ top: 0, behavior: "smooth" });
-        
-        // Fire confetti on correct answer
-        confetti.burstCannons();
-        setTimeout(() => confetti.burstCannons(), 500); 
 
+        if (celebrate) {
+          confetti.burstCannons();
+          setTimeout(() => confetti.burstCannons(), 500);
+        }
       } else {
         viewPages.classList.remove("active");
         viewQuestion.classList.add("active");
         if (hint) hint.textContent = "";
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
+
+      updatePageNav();
     }
 
     // Answer buttons Logic
@@ -372,7 +1008,7 @@
         if (ans === "26") {
           show("pages");
         } else {
-          if (hint) hint.textContent = "Hehe not quite! Try again, Sweety 💕";
+          if (hint) hint.textContent = "Hehe not quite! Try again, Priyashree 💕";
           // Shake animation for incorrect answer
           btn.animate(
             [
