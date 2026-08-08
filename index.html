@@ -624,10 +624,7 @@
 
             <!-- PAGE 5: Birthday cake cutting video -->
             <div class="slide text-page" data-footer="A little birthday moment for you 🎂❤️">
-              <h1 class="photo-title">
-                A little birthday moment for you ❤️
-              </h1>
-
+              <h1 class="photo-title">A little birthday moment for you ❤️</h1>
               <p class="tiny">✨❤️✨</p>
 
               <video
@@ -640,42 +637,55 @@
               ></video>
 
               <div class="romantic-quote">
-                <p>
-                  <strong>Happy Birthday, Priyashree ❤️</strong>
-                </p>
-
-                <p>
-                  Some people come into our lives and simply make
-                  everything a little brighter... and you are one of
-                  those beautiful people. ✨
-                </p>
-
-                <p>
-                  May this birthday bring you countless reasons to smile,
-                  beautiful memories to cherish, and all the happiness
-                  your heart can hold. 💛
-                </p>
-
-                <p>
-                  If I could give you one thing for your birthday,
-                  it would be the ability to see yourself through my eyes...
-                  so you could understand just how special you truly are. ❤️
-                </p>
-
-                <p>
-                  <strong>
-                    Happy Birthday to someone who makes my world
-                    a little more beautiful just by being in it. 🤍
-                  </strong>
-                </p>
+                <p><strong>Happy Birthday, Priyashree ❤️</strong></p>
+                <p>May your smile stay bright, your heart stay happy, and your days be filled with beautiful moments. ✨</p>
+                <p><strong>You deserve all the love, happiness, and magic this birthday can bring. 💛</strong></p>
               </div>
-
-              <p class="video-note">
-                🎂 A little memory from your special day... ❤️
-              </p>
             </div>
 
-            <!-- PAGE 6 -->
+            <!-- PAGE 6: Wishing video -->
+            <div class="slide text-page" data-footer="A little birthday wish for you 💕">
+              <h1 class="photo-title">A birthday wish, just for you ❤️</h1>
+              <p class="tiny">✨❤️✨</p>
+
+              <video
+                id="wishingVideo"
+                class="birthday-video"
+                src="video_wishing.mp4"
+                controls
+                playsinline
+                preload="metadata"
+              ></video>
+
+              <div class="romantic-quote">
+                <p><strong>Happy Birthday, Priyashree ❤️</strong></p>
+                <p>May this new year of your life bring you endless smiles, peaceful moments, and a heart full of love. ✨</p>
+                <p><strong>And may I always have a reason to see that beautiful smile of yours. 💋</strong></p>
+              </div>
+            </div>
+
+            <!-- PAGE 7: Snacks distribution video -->
+            <div class="slide text-page" data-footer="Something sweet for someone sweeter ❤️">
+              <h1 class="photo-title">Something sweet for someone sweeter ❤️</h1>
+              <p class="tiny">✨❤️✨</p>
+
+              <video
+                id="snacksVideo"
+                class="birthday-video"
+                src="video_snacks_dist.mp4"
+                controls
+                playsinline
+                preload="metadata"
+              ></video>
+
+              <div class="romantic-quote">
+                <p><strong>Happy Birthday to my beautiful Priyashree ❤️</strong></p>
+                <p>May your life always be filled with sweet surprises, warm memories, and people who love you deeply. ✨</p>
+                <p><strong>Keep smiling, keep shining, and keep being the wonderful soul you are. 💛</strong></p>
+              </div>
+            </div>
+
+            <!-- PAGE 8 -->
             <div class="slide text-page" data-footer="One more heartfelt page ❤️">
               <h1 class="photo-title">For you, always ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -701,7 +711,7 @@
               </div>
             </div>
 
-            <!-- PAGE 7 -->
+            <!-- PAGE 9 -->
             <div class="slide text-page" data-footer="Niiice... you’re almost there Priyashree 💋">
               <h1 class="photo-title">Happy Birthday, my favorite soul ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -723,7 +733,7 @@
               </div>
             </div>
 
-            <!-- PAGE 8 -->
+            <!-- PAGE 10 -->
             <div class="slide text-page" data-footer="Last one... read slowly 💋">
               <h1 class="photo-title">My heart’s truth ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -754,7 +764,7 @@
               </div>
             </div>
 
-            <!-- PAGE 9 -->
+            <!-- PAGE 11 -->
             <div class="slide text-page final-page" data-footer="That’s it Priyashree 💋">
               <h1 class="photo-title">Okay okay... now the final one 😊💌</h1>
               <p class="tiny">✨❤️✨</p>
@@ -819,8 +829,12 @@
     const nextSlide = document.getElementById("nextSlide");
     const slideFooter = document.getElementById("slideFooter");
     const globalPageNav = document.getElementById("globalPageNav");
-    const birthdayVideo = document.getElementById("birthdayVideo");
 
+    const birthdayVideos = [
+      document.getElementById("birthdayVideo"),
+      document.getElementById("wishingVideo"),
+      document.getElementById("snacksVideo")
+    ].filter(Boolean);
     let currentSlide = 0;
 
     // Page 1 = riddle.
@@ -897,6 +911,22 @@
       slideFooter.textContent = slides[0].dataset.footer || "";
     }
 
+    function scrollPageToTop() {
+      // Reset all common scroll containers. This is especially useful on
+      // mobile Safari/Chrome where the previous scroll position can persist
+      // while the slider changes its visible page.
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+
+      // Reset once more after the new slide has been painted.
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      });
+    }
+
     function goToSlide(index) {
       currentSlide = (index + slides.length) % slides.length;
 
@@ -909,39 +939,41 @@
       }
 
       /*
-       * PAGE 5 VIDEO
-       *
-       * Page 5 corresponds to slider index 3:
-       * Page 2 = index 0
-       * Page 3 = index 1
-       * Page 4 = index 2
-       * Page 5 = index 3
+       * Always start the newly selected birthday page at the top.
+       * This applies to page-number clicks, left/right arrows,
+       * and mobile navigation.
        */
-      if (birthdayVideo) {
-        if (currentSlide === 3) {
-          birthdayVideo.currentTime = 0;
+      scrollPageToTop();
 
-          /*
-           * The page navigation is triggered by a user click,
-           * so browsers generally allow playback with audio.
-           *
-           * No "muted" attribute is used, so the video's
-           * original audio remains audible.
-           */
-          const playPromise = birthdayVideo.play();
+      /*
+       * Birthday videos on pages 5, 6 and 7.
+       *
+       * Page 5 = slider index 3 = cake cutting
+       * Page 6 = slider index 4 = wishing
+       * Page 7 = slider index 5 = snacks distribution
+       *
+       * None of the videos is muted, so their original audio remains audible.
+       * If a browser blocks autoplay with sound, the native controls remain
+       * available so the user can press Play.
+       */
+      birthdayVideos.forEach((video) => {
+        video.pause();
+        video.currentTime = 0;
+      });
 
-          if (playPromise !== undefined) {
-            playPromise.catch(() => {
-              /*
-               * Some browsers may still block autoplay with sound.
-               * In that case the native video controls remain available
-               * and the user can press Play manually.
-               */
-            });
-          }
-        } else {
-          birthdayVideo.pause();
-          birthdayVideo.currentTime = 0;
+      const videoForSlide = {
+        3: birthdayVideos[0],
+        4: birthdayVideos[1],
+        5: birthdayVideos[2]
+      }[currentSlide];
+
+      if (videoForSlide) {
+        const playPromise = videoForSlide.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // Autoplay with audio may be blocked by some mobile browsers.
+            // The video controls remain visible for manual playback.
+          });
         }
       }
 
@@ -1353,11 +1385,11 @@
         viewPages.classList.remove("active");
         viewQuestion.classList.add("active");
 
-        // Stop the birthday video when returning to the riddle.
-        if (birthdayVideo) {
-          birthdayVideo.pause();
-          birthdayVideo.currentTime = 0;
-        }
+        // Stop all birthday videos when returning to the riddle.
+        birthdayVideos.forEach((video) => {
+          video.pause();
+          video.currentTime = 0;
+        });
 
         if (hint) {
           hint.textContent = "";
