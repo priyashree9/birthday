@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Happy Birthday Priyashree ❤️</title>
+
   <style>
     :root{
       --bg1:#0f1226;
@@ -14,22 +15,32 @@
       --accent:#ffcc66;
       --accent2:#ff6fb1;
       --line:#ffffff1a;
-      --shadow: 0 14px 50px rgba(0,0,0,.45);
-      --radius: 18px;
+      --shadow:0 14px 50px rgba(0,0,0,.45);
+      --radius:18px;
     }
 
     *{box-sizing:border-box}
 
-    body{
-      margin:0; min-height:100vh;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background: radial-gradient(1200px 800px at 20% 10%, #2b2f63 0%, transparent 60%),
-                  radial-gradient(900px 650px at 80% 30%, #4a235a 0%, transparent 55%),
-                  linear-gradient(180deg, var(--bg1), var(--bg2));
+    html{
+      scroll-behavior:smooth;
     }
 
-    .container{max-width:900px;margin:0 auto;padding:28px 16px 40px;}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 10%,#2b2f63 0%,transparent 60%),
+        radial-gradient(900px 650px at 80% 30%,#4a235a 0%,transparent 55%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+    }
+
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      padding:28px 16px 40px;
+    }
 
     .hero{text-align:center;margin:18px 0 18px;}
 
@@ -53,11 +64,16 @@
       background:var(--card);
       box-shadow:var(--shadow);
       border-radius:var(--radius);
-      backdrop-filter: blur(10px);
+      backdrop-filter:blur(10px);
       max-width:500px;
     }
 
-    .card.big{padding:26px;max-width:600px;}
+    .card.big{
+      padding:26px;
+      max-width:600px;
+      display:flex;
+      flex-direction:column;
+    }
 
     .math-box{
       font-family:Consolas,monospace;
@@ -263,7 +279,7 @@
       padding:0;
       border:1px solid var(--line);
       border-radius:8px;
-      background:rgba(255,255,255,0.04);
+      background:rgba(255,255,255,.04);
       color:var(--muted);
       cursor:pointer;
       font-size:13px;
@@ -297,7 +313,6 @@
     /* --- Views / Slider --- */
     .view{display:none;}
     .view.active{display:block;}
-    .card.big{display:flex;flex-direction:column;}
 
     .slider{
       position:relative;
@@ -332,7 +347,7 @@
       to{opacity:1;transform:translateY(0);}
     }
 
-    /* --- Page 5 Birthday Video --- */
+    /* --- Birthday videos --- */
     .birthday-video{
       width:100%;
       max-width:680px;
@@ -361,24 +376,6 @@
     .romantic-quote p{margin:0 0 15px;}
     .romantic-quote p:last-child{margin-bottom:0;}
     .romantic-quote strong{color:var(--text);}
-
-    .video-note{
-      color:var(--muted);
-      font-size:13px;
-      margin-top:4px;
-    }
-
-    /* --- Confetti canvas --- */
-    #confettiCanvas{
-      position:fixed;
-      inset:0;
-      width:100vw;
-      height:100vh;
-      pointer-events:none;
-      z-index:9999;
-      opacity:0;
-      transition:opacity 160ms ease;
-    }
 
     /* ---------- 20-photo memory gallery ---------- */
     .memory-gallery{
@@ -474,27 +471,44 @@
       transform:scale(1.25);
     }
 
+    /* --- Confetti --- */
+    #confettiCanvas{
+      position:fixed;
+      inset:0;
+      width:100vw;
+      height:100vh;
+      pointer-events:none;
+      z-index:9999;
+      opacity:0;
+      transition:opacity 160ms ease;
+    }
+
     @media (max-width:600px){
       .memory-frame{aspect-ratio:3/4}
+
       .memory-arrow{
         width:40px;
         height:40px;
         min-width:40px;
         font-size:21px;
       }
+
       .memory-arrow.left{left:8px}
       .memory-arrow.right{right:8px}
     }
 
     @media (max-width:480px){
       .birthday-photo{max-width:100%;}
+
       .message-box{
         padding:17px 16px;
         font-size:14px;
         line-height:1.6;
       }
+
       .final-page{min-height:58vh;}
       .options{grid-template-columns:1fr;}
+
       .romantic-quote{
         padding:16px 17px;
         font-size:14px;
@@ -536,14 +550,14 @@
       </footer>
     </section>
 
-    <!-- VIEW 2: “PAGES” AFTER CORRECT -->
+    <!-- VIEW 2: BIRTHDAY PAGES -->
     <section id="view-pages" class="view">
       <section class="card big">
 
         <div class="slider" aria-label="Birthday pages slider">
           <div id="track" class="track">
 
-            <!-- PAGE 2: Correct answer / birthday welcome -->
+            <!-- PAGE 2 -->
             <div class="slide" data-footer="Yessss... more surprises 💛">
               <div class="badge">✅ Correct! Intelligent girl as always😛!</div>
               <h1>Happy 26th Birthday Priyashree! ❤️✨</h1>
@@ -551,12 +565,12 @@
               <p class="sub">Yessss! You just made me the happiest person alive! 🎉</p>
               <hr class="sep" style="width:100%;" />
               <p class="lead">
-                Welcome to your special birthday website, Priyashree.<br /><br />
-                <em> More surprises are waiting for you on the next pages; sit back and relax to enjoy this emotional, romantic ride ahead, mero Priyashree...</em> 🥺❤️
+                Welcome to your special birthday website.<br /><br />
+                <em>More surprises are waiting for you on the next pages; sit back and relax to enjoy this emotional, romantic ride ahead, mero Priyashree...</em> 🥺❤️
               </p>
             </div>
 
-            <!-- PAGE 3: Birthday photo -->
+            <!-- PAGE 3 -->
             <div class="slide" data-footer="Your fav people in one frame 😉💛">
               <h1 class="photo-title">Wish you a very Happiest 26th Birthday, Priyashree 🎂</h1>
               <p class="tiny">✨💛✨</p>
@@ -580,19 +594,14 @@
               </p>
             </div>
 
-            <!-- PAGE 4: 20-photo memory slideshow -->
+            <!-- PAGE 4 -->
             <div class="slide" data-footer="Thanks again for making 20 children happy ❤️">
               <h1 class="photo-title">Congratulations, you made 20 people happy this time... and no, not cows anymore 😛❤️</h1>
               <p class="tiny">✨❤️✨</p>
 
               <div class="memory-gallery" aria-label="20-photo memory slideshow">
                 <div class="memory-frame">
-                  <button
-                    id="memoryPrev"
-                    class="memory-arrow left"
-                    type="button"
-                    aria-label="Previous photo"
-                  >←</button>
+                  <button id="memoryPrev" class="memory-arrow left" type="button" aria-label="Previous photo">←</button>
 
                   <img
                     id="memoryImage"
@@ -602,27 +611,15 @@
                     draggable="false"
                   />
 
-                  <button
-                    id="memoryNext"
-                    class="memory-arrow right"
-                    type="button"
-                    aria-label="Next photo"
-                  >→</button>
+                  <button id="memoryNext" class="memory-arrow right" type="button" aria-label="Next photo">→</button>
                 </div>
 
-                <div id="memoryCounter" class="memory-counter" aria-live="polite">
-                  1 / 20
-                </div>
-
-                <div
-                  id="memoryProgress"
-                  class="memory-progress"
-                  aria-label="Select a memory photo"
-                ></div>
+                <div id="memoryCounter" class="memory-counter" aria-live="polite">1 / 20</div>
+                <div id="memoryProgress" class="memory-progress" aria-label="Select a memory photo"></div>
               </div>
             </div>
 
-            <!-- PAGE 5: Birthday cake cutting video -->
+            <!-- PAGE 5 -->
             <div class="slide text-page" data-footer="A beautiful birthday moment for you and 20 children 🎂❤️">
               <h1 class="photo-title">20 Pure souls celebrating your birthday 🙏❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -643,7 +640,7 @@
               </div>
             </div>
 
-            <!-- PAGE 6: Wishing video -->
+            <!-- PAGE 6 -->
             <div class="slide text-page" data-footer="Birthday wishes for my Priyashree 💕">
               <h1 class="photo-title">Best birthday wishes, just for you ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -664,7 +661,7 @@
               </div>
             </div>
 
-            <!-- PAGE 7: Snacks distribution video -->
+            <!-- PAGE 7 -->
             <div class="slide text-page" data-footer="Something sweet for the sweetest person ever I met ❤️">
               <h1 class="photo-title">A little sweet treat on behalf of you, mero mayalu ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -685,7 +682,7 @@
               </div>
             </div>
 
-            <!-- PAGE 8: Birthday song -->
+            <!-- PAGE 8 -->
             <div class="slide text-page" data-footer="Our song 😉❤️">
               <h1 class="photo-title">Now a song for my cutiee 😉❤️🎶</h1>
               <p class="tiny">✨🎵✨</p>
@@ -706,7 +703,7 @@
               </div>
             </div>
 
-            <!-- PAGE 8 -->
+            <!-- PAGE 9 -->
             <div class="slide text-page" data-footer="One more heartfelt page ❤️">
               <h1 class="photo-title">For you, always ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -732,7 +729,7 @@
               </div>
             </div>
 
-            <!-- PAGE 9 -->
+            <!-- PAGE 10 -->
             <div class="slide text-page" data-footer="Niiice... you’re almost there Priyashree 💋">
               <h1 class="photo-title">Happy Birthday, my favorite soul ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -754,7 +751,7 @@
               </div>
             </div>
 
-            <!-- PAGE 10 -->
+            <!-- PAGE 11 -->
             <div class="slide text-page" data-footer="Last one... read slowly 💋">
               <h1 class="photo-title">My heart’s truth ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -785,7 +782,7 @@
               </div>
             </div>
 
-            <!-- PAGE 11 -->
+            <!-- PAGE 12 -->
             <div class="slide text-page final-page" data-footer="That’s it Priyashree 💋">
               <h1 class="photo-title">Okay okay... now the final one 😊💌</h1>
               <p class="tiny">✨❤️✨</p>
@@ -833,11 +830,32 @@
 
   </main>
 
-  <!-- Full-screen confetti overlay -->
   <canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
   <script>
   (function () {
+    "use strict";
+
+    /*
+     * ==========================================================
+     * EMAIL NOTIFICATION CONFIGURATION
+     * ==========================================================
+     *
+     * This uses FormSubmit's AJAX endpoint so the notification
+     * can be sent from a static HTML page without your own server.
+     *
+     * IMPORTANT:
+     * Replace YOUR_EMAIL_HERE with the email address where you
+     * want the "correct answer clicked" notification.
+     *
+     * Example:
+     * const NOTIFICATION_EMAIL = "you@example.com";
+     *
+     * The first submission to a new FormSubmit address requires
+     * email confirmation from FormSubmit.
+     */
+    const NOTIFICATION_EMAIL = "YOUR_EMAIL_HERE";
+
     const viewQuestion = document.getElementById("view-question");
     const viewPages = document.getElementById("view-pages");
     const hint = document.getElementById("hint");
@@ -851,312 +869,117 @@
     const slideFooter = document.getElementById("slideFooter");
     const globalPageNav = document.getElementById("globalPageNav");
 
-    const birthdayVideos = [
-      document.getElementById("birthdayVideo"),
-      document.getElementById("wishingVideo"),
-      document.getElementById("snacksVideo"),
-      document.getElementById("songVideo")
-    ].filter(Boolean);
     let currentSlide = 0;
+    let correctAnswerNotificationSent = false;
 
-    // Page 1 = riddle.
-    // Page 4 = 20-photo memory slideshow.
-    // Page 5 = birthday cake-cutting video.
-    // Pages 2..N = birthday pages.
-    const totalPages = slides.length + 1;
+    /*
+     * ----------------------------------------------------------
+     * Scroll handling
+     * ----------------------------------------------------------
+     * Mobile browsers can retain the previous scroll position
+     * while the slider changes. We explicitly move the viewport
+     * to the beginning of the newly opened page/slide.
+     */
+    function scrollToTopInstant() {
+      window.scrollTo(0, 0);
 
-    // ---------- Numbered page navigation ----------
-    function buildPageNav() {
-      globalPageNav.innerHTML = "";
-
-      // Show up to 20 page numbers.
-      const maxVisible = 20;
-
-      const visiblePages = totalPages <= maxVisible
-        ? Array.from({length: totalPages}, (_, i) => i + 1)
-        : Array.from({length: maxVisible}, (_, i) => i + 1);
-
-      visiblePages.forEach((page) => {
-        const btn = document.createElement("button");
-        btn.className = "page-number";
-        btn.textContent = page;
-        btn.setAttribute("aria-label", `Go to page ${page}`);
-        btn.addEventListener("click", () => goToPage(page));
-        globalPageNav.appendChild(btn);
-      });
-
-      if (totalPages > maxVisible) {
-        const ellipsis = document.createElement("span");
-        ellipsis.className = "page-ellipsis";
-        ellipsis.textContent = "…";
-        ellipsis.setAttribute("aria-hidden", "true");
-        globalPageNav.appendChild(ellipsis);
-
-        const last = document.createElement("button");
-        last.className = "page-number";
-        last.textContent = totalPages;
-        last.setAttribute("aria-label", `Go to page ${totalPages}`);
-        last.addEventListener("click", () => goToPage(totalPages));
-        globalPageNav.appendChild(last);
-      }
-
-      updatePageNav();
-    }
-
-    function updatePageNav() {
-      const currentPage = viewPages.classList.contains("active")
-        ? currentSlide + 2
-        : 1;
-
-      globalPageNav.querySelectorAll(".page-number").forEach((btn) => {
-        btn.classList.toggle(
-          "active",
-          Number(btn.textContent) === currentPage
-        );
+      // Helps on some mobile Safari/Chrome transitions.
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
       });
     }
 
-    function goToPage(page) {
-      if (page === 1) {
-        show("question", false);
+    function scrollToSlideTop() {
+      const slider = document.querySelector(".slider");
+      if (!slider) {
+        scrollToTopInstant();
         return;
       }
 
-      show("pages", false);
-      goToSlide(page - 2);
-    }
-
-    buildPageNav();
-
-    // ---------- Birthday page slider ----------
-    if (slideFooter) {
-      slideFooter.textContent = slides[0].dataset.footer || "";
-    }
-
-    function scrollPageToTop() {
-      // Reset all common scroll containers. This is especially useful on
-      // mobile Safari/Chrome where the previous scroll position can persist
-      // while the slider changes its visible page.
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-
-      // Reset once more after the new slide has been painted.
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
+      const y = slider.getBoundingClientRect().top + window.pageYOffset - 8;
+      window.scrollTo({
+        top: Math.max(0, y),
+        behavior: "smooth"
       });
+
+      // A second correction handles mobile viewport/layout updates.
+      setTimeout(() => {
+        const correctedY =
+          slider.getBoundingClientRect().top + window.pageYOffset - 8;
+
+        window.scrollTo({
+          top: Math.max(0, correctedY),
+          behavior: "auto"
+        });
+      }, 120);
     }
 
-    function goToSlide(index) {
-      currentSlide = (index + slides.length) % slides.length;
+    /*
+     * ----------------------------------------------------------
+     * Email notification
+     * ----------------------------------------------------------
+     * This runs ONLY from the correct-answer branch below.
+     * Incorrect answers never call this function.
+     */
+    async function sendCorrectAnswerNotification() {
+      if (correctAnswerNotificationSent) return;
 
-      track.style.transform =
-        `translateX(-${currentSlide * 100}%)`;
-
-      if (slideFooter) {
-        slideFooter.textContent =
-          slides[currentSlide].dataset.footer || "";
+      if (
+        !NOTIFICATION_EMAIL ||
+        NOTIFICATION_EMAIL === "YOUR_EMAIL_HERE"
+      ) {
+        console.warn(
+          "Email notification is not configured. Set NOTIFICATION_EMAIL in the script."
+        );
+        return;
       }
 
-      /*
-       * Always start the newly selected birthday page at the top.
-       * This applies to page-number clicks, left/right arrows,
-       * and mobile navigation.
-       */
-      scrollPageToTop();
+      correctAnswerNotificationSent = true;
 
-      /*
-       * Birthday videos on pages 5, 6 and 7.
-       *
-       * Page 5 = slider index 3 = cake cutting
-       * Page 6 = slider index 4 = wishing
-       * Page 7 = slider index 5 = snacks distribution
-       *
-       * None of the videos is muted, so their original audio remains audible.
-       * If a browser blocks autoplay with sound, the native controls remain
-       * available so the user can press Play.
-       */
-      birthdayVideos.forEach((video) => {
-        video.pause();
-        video.currentTime = 0;
-      });
+      const now = new Date();
 
-      const videoForSlide = {
-        3: birthdayVideos[0],
-        4: birthdayVideos[1],
-        5: birthdayVideos[2],
-        6: birthdayVideos[3]
-      }[currentSlide];
-
-      if (videoForSlide) {
-        const playPromise = videoForSlide.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(() => {
-            // Autoplay with audio may be blocked by some mobile browsers.
-            // The video controls remain visible for manual playback.
-          });
-        }
-      }
-
-      updatePageNav();
-    }
-
-    prevSlide.addEventListener("click", () => {
-      goToSlide(currentSlide - 1);
-    });
-
-    nextSlide.addEventListener("click", () => {
-      goToSlide(currentSlide + 1);
-    });
-
-    // ---------- 20-photo memory slideshow ----------
-    const memoryImages = Array.from(
-      { length: 20 },
-      (_, i) => `zz (${i + 1}).jpeg`
-    );
-
-    const memoryImage = document.getElementById("memoryImage");
-    const memoryPrev = document.getElementById("memoryPrev");
-    const memoryNext = document.getElementById("memoryNext");
-    const memoryCounter = document.getElementById("memoryCounter");
-    const memoryProgress = document.getElementById("memoryProgress");
-
-    let memoryIndex = 0;
-    let memoryTimer = null;
-    let memoryPaused = false;
-
-    memoryImages.forEach((_, index) => {
-      const dot = document.createElement("button");
-
-      dot.className =
-        "memory-dot" + (index === 0 ? " active" : "");
-
-      dot.type = "button";
-      dot.setAttribute(
-        "aria-label",
-        `Show memory photo ${index + 1}`
-      );
-
-      dot.addEventListener("click", () => {
-        showMemory(index);
-        restartMemoryTimer();
-      });
-
-      memoryProgress.appendChild(dot);
-    });
-
-    function showMemory(index, animate = true) {
-      memoryIndex =
-        (index + memoryImages.length) % memoryImages.length;
-
-      const changeImage = () => {
-        memoryImage.src = memoryImages[memoryIndex];
-
-        memoryImage.alt =
-          `Memory photo ${memoryIndex + 1} of ${memoryImages.length}`;
-
-        memoryCounter.textContent =
-          `${memoryIndex + 1} / ${memoryImages.length}`;
-
-        memoryProgress
-          .querySelectorAll(".memory-dot")
-          .forEach((dot, i) => {
-            dot.classList.toggle(
-              "active",
-              i === memoryIndex
-            );
-          });
-
-        memoryImage.style.opacity = "1";
+      const payload = {
+        name: "Priyashree Birthday Website",
+        subject: "🎉 Priyashree unlocked the birthday surprise!",
+        message:
+          "Priyashree clicked the correct answer (26) and unlocked the birthday website.\n\n" +
+          "Time: " + now.toLocaleString() + "\n" +
+          "Device: " + navigator.userAgent + "\n" +
+          "Page: Birthday riddle / first page",
+        _captcha: "false"
       };
 
-      if (animate) {
-        memoryImage.style.opacity = "0";
-        setTimeout(changeImage, 140);
-      } else {
-        changeImage();
+      try {
+        const response = await fetch(
+          "https://formsubmit.co/ajax/" +
+          encodeURIComponent(NOTIFICATION_EMAIL),
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(payload)
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Notification request failed: " + response.status);
+        }
+
+        const result = await response.json();
+        console.log("Correct-answer email notification sent:", result);
+      } catch (error) {
+        // Do not block the birthday website if notification fails.
+        console.error("Could not send correct-answer notification:", error);
       }
     }
 
-    function restartMemoryTimer() {
-      clearInterval(memoryTimer);
-
-      memoryTimer = setInterval(() => {
-        // Page 4 corresponds to slider index 2.
-        if (
-          !memoryPaused &&
-          viewPages.classList.contains("active") &&
-          currentSlide === 2
-        ) {
-          showMemory(memoryIndex + 1);
-        }
-      }, 4000);
-    }
-
-    memoryPrev.addEventListener("click", () => {
-      showMemory(memoryIndex - 1);
-      restartMemoryTimer();
-    });
-
-    memoryNext.addEventListener("click", () => {
-      showMemory(memoryIndex + 1);
-      restartMemoryTimer();
-    });
-
-    memoryImage.addEventListener("mouseenter", () => {
-      memoryPaused = true;
-    });
-
-    memoryImage.addEventListener("mouseleave", () => {
-      memoryPaused = false;
-    });
-
-    // Swipe support on phones/tablets.
-    let memoryTouchStartX = 0;
-
-    memoryImage.addEventListener(
-      "touchstart",
-      (event) => {
-        memoryTouchStartX =
-          event.changedTouches[0].clientX;
-      },
-      { passive:true }
-    );
-
-    memoryImage.addEventListener(
-      "touchend",
-      (event) => {
-        const deltaX =
-          event.changedTouches[0].clientX -
-          memoryTouchStartX;
-
-        if (Math.abs(deltaX) > 45) {
-          showMemory(
-            memoryIndex + (deltaX < 0 ? 1 : -1)
-          );
-
-          restartMemoryTimer();
-        }
-      },
-      { passive:true }
-    );
-
-    // Preload the remaining photos for smoother transitions.
-    memoryImages.slice(1).forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-
-    showMemory(0, false);
-
-    // Wait 3 seconds before starting the automatic slideshow.
-    setTimeout(() => {
-      restartMemoryTimer();
-    }, 3000);
-
-    // ---------- Stage-cannon confetti ----------
+    /*
+     * ----------------------------------------------------------
+     * Confetti
+     * ----------------------------------------------------------
+     */
     const confetti = (() => {
       const canvas = document.getElementById("confettiCanvas");
       const ctx = canvas.getContext("2d");
@@ -1168,34 +991,6 @@
       let raf = null;
       let running = false;
 
-      function resize() {
-        dpr =
-          Math.max(1, window.devicePixelRatio || 1);
-
-        canvas.width =
-          Math.floor(window.innerWidth * dpr);
-
-        canvas.height =
-          Math.floor(window.innerHeight * dpr);
-
-        canvas.style.width =
-          window.innerWidth + "px";
-
-        canvas.style.height =
-          window.innerHeight + "px";
-
-        ctx.setTransform(
-          dpr, 0, 0, dpr, 0, 0
-        );
-
-        W = window.innerWidth;
-        H = window.innerHeight;
-      }
-
-      function rand(min, max) {
-        return Math.random() * (max - min) + min;
-      }
-
       const colors = [
         "#ffcc66",
         "#ff6fb1",
@@ -1206,54 +1001,54 @@
         "#ffe7a3"
       ];
 
+      function resize() {
+        dpr = Math.max(1, window.devicePixelRatio || 1);
+
+        canvas.width = Math.floor(window.innerWidth * dpr);
+        canvas.height = Math.floor(window.innerHeight * dpr);
+
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        W = window.innerWidth;
+        H = window.innerHeight;
+      }
+
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
       function makeParticle(x, y, angleRad, speed) {
-        const isStreamer =
-          Math.random() < 0.22;
-
-        const w = isStreamer
-          ? rand(2, 4)
-          : rand(4, 8);
-
-        const h = isStreamer
-          ? rand(18, 34)
-          : rand(6, 12);
+        const isStreamer = Math.random() < 0.22;
+        const w = isStreamer ? rand(2, 4) : rand(4, 8);
+        const h = isStreamer ? rand(18, 34) : rand(6, 12);
 
         return {
           x,
           y,
-          vx:
-            Math.cos(angleRad) * speed +
-            rand(-0.6, 0.6),
-          vy:
-            Math.sin(angleRad) * speed +
-            rand(-0.6, 0.6),
-          g: rand(0.12, 0.18),
-          rot: rand(0, Math.PI * 2),
-          vr: rand(-0.18, 0.18),
+          vx: Math.cos(angleRad) * speed + rand(-0.6, 0.6),
+          vy: Math.sin(angleRad) * speed,
+          gravity: rand(0.16, 0.24),
+          drag: rand(0.985, 0.995),
           w,
           h,
-          color:
-            colors[
-              (Math.random() * colors.length) | 0
-            ],
-          life: rand(160, 240),
-          age: 0,
-          drag: rand(0.985, 0.995)
+          rot: rand(0, Math.PI * 2),
+          vr: rand(-0.18, 0.18),
+          life: rand(80, 125),
+          color: colors[Math.floor(Math.random() * colors.length)],
+          streamer: isStreamer
         };
       }
 
       function drawParticle(p) {
         ctx.save();
-
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rot);
+
         ctx.fillStyle = p.color;
-        ctx.fillRect(
-          -p.w / 2,
-          -p.h / 2,
-          p.w,
-          p.h
-        );
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
 
         ctx.restore();
       }
@@ -1261,31 +1056,22 @@
       function step() {
         ctx.clearRect(0, 0, W, H);
 
-        particles =
-          particles.filter(
-            (p) => p.age < p.life
-          );
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const p = particles[i];
 
-        for (const p of particles) {
           p.vx *= p.drag;
-          p.vy *= p.drag;
-          p.vy += p.g;
+          p.vy += p.gravity;
           p.x += p.vx;
           p.y += p.vy;
           p.rot += p.vr;
-          p.age++;
+          p.life -= 1;
 
-          const t =
-            1 - p.age / p.life;
-
-          ctx.globalAlpha =
-            Math.max(
-              0,
-              Math.min(1, t)
-            );
+          if (p.life <= 0 || p.y > H + 80) {
+            particles.splice(i, 1);
+            continue;
+          }
 
           drawParticle(p);
-          ctx.globalAlpha = 1;
         }
 
         if (particles.length) {
@@ -1322,19 +1108,10 @@
         const rightX = W * 0.90;
         const y = H * 0.82;
 
-        function emit(
-          x,
-          baseAngle,
-          spread,
-          count
-        ) {
+        function emit(x, baseAngle, spread, count) {
           for (let i = 0; i < count; i++) {
-            const a =
-              baseAngle +
-              rand(-spread, spread);
-
-            const speed =
-              rand(7.5, 12.5);
+            const a = baseAngle + rand(-spread, spread);
+            const speed = rand(7.5, 12.5);
 
             particles.push(
               makeParticle(
@@ -1347,94 +1124,206 @@
           }
         }
 
-        const deg = (d) =>
-          d * Math.PI / 180;
+        const deg = (d) => d * Math.PI / 180;
 
-        emit(
-          leftX,
-          deg(-55),
-          deg(18),
-          95
-        );
-
-        emit(
-          rightX,
-          deg(-125),
-          deg(18),
-          95
-        );
+        emit(leftX, deg(-55), deg(18), 95);
+        emit(rightX, deg(-125), deg(18), 95);
 
         const centerX = W * 0.50;
-
-        emit(
-          centerX,
-          deg(-90),
-          deg(20),
-          45
-        );
+        emit(centerX, deg(-90), deg(20), 45);
 
         start();
       }
 
-      window.addEventListener(
-        "resize",
-        () => {
-          if (running) resize();
-        }
-      );
+      window.addEventListener("resize", () => {
+        if (running) resize();
+      });
 
       return { burstCannons };
     })();
 
-    // ---------- Show / hide views ----------
+    /*
+     * ----------------------------------------------------------
+     * View switching
+     * ----------------------------------------------------------
+     */
     function show(which, celebrate = true) {
       if (which === "pages") {
         viewQuestion.classList.remove("active");
         viewPages.classList.add("active");
 
-        window.scrollTo({
-          top:0,
-          behavior:"smooth"
-        });
+        currentSlide = 0;
+        track.style.transform = "translateX(0%)";
+        updateSlideUI();
+
+        scrollToTopInstant();
 
         if (celebrate) {
           confetti.burstCannons();
-
-          setTimeout(() => {
-            confetti.burstCannons();
-          }, 500);
+          setTimeout(() => confetti.burstCannons(), 500);
         }
       } else {
         viewPages.classList.remove("active");
         viewQuestion.classList.add("active");
 
-        // Stop all birthday videos when returning to the riddle.
-        birthdayVideos.forEach((video) => {
-          video.pause();
-          video.currentTime = 0;
-        });
-
         if (hint) {
           hint.textContent = "";
         }
 
-        window.scrollTo({
-          top:0,
-          behavior:"smooth"
-        });
+        scrollToTopInstant();
+        updatePageNav();
+      }
+    }
+
+    /*
+     * ----------------------------------------------------------
+     * Numbered page navigation
+     * ----------------------------------------------------------
+     */
+    const totalPages = slides.length + 1;
+
+    function buildPageNav() {
+      globalPageNav.innerHTML = "";
+
+      const maxVisible = 10;
+
+      const visiblePages =
+        totalPages <= maxVisible
+          ? Array.from({ length: totalPages }, (_, i) => i + 1)
+          : Array.from({ length: maxVisible }, (_, i) => i + 1);
+
+      visiblePages.forEach((page) => {
+        const btn = document.createElement("button");
+
+        btn.className = "page-number";
+        btn.textContent = page;
+        btn.setAttribute("aria-label", "Go to page " + page);
+
+        btn.addEventListener("click", () => goToPage(page));
+
+        globalPageNav.appendChild(btn);
+      });
+
+      if (totalPages > maxVisible) {
+        const ellipsis = document.createElement("span");
+
+        ellipsis.className = "page-ellipsis";
+        ellipsis.textContent = "…";
+        ellipsis.setAttribute("aria-hidden", "true");
+
+        globalPageNav.appendChild(ellipsis);
+
+        const last = document.createElement("button");
+
+        last.className = "page-number";
+        last.textContent = totalPages;
+        last.setAttribute("aria-label", "Go to page " + totalPages);
+
+        last.addEventListener("click", () => goToPage(totalPages));
+
+        globalPageNav.appendChild(last);
       }
 
       updatePageNav();
     }
 
-    // ---------- Answer buttons ----------
+    function updatePageNav() {
+      const currentPage = viewPages.classList.contains("active")
+        ? currentSlide + 2
+        : 1;
+
+      globalPageNav.querySelectorAll(".page-number").forEach((btn) => {
+        btn.classList.toggle(
+          "active",
+          Number(btn.textContent) === currentPage
+        );
+      });
+    }
+
+    function goToPage(page) {
+      if (page === 1) {
+        show("question", false);
+        return;
+      }
+
+      show("pages", false);
+      goToSlide(page - 2, true);
+    }
+
+    /*
+     * ----------------------------------------------------------
+     * Birthday page slider
+     * ----------------------------------------------------------
+     */
+    function updateSlideUI() {
+      track.style.transform =
+        "translateX(-" + (currentSlide * 100) + "%)";
+
+      if (slideFooter) {
+        slideFooter.textContent =
+          slides[currentSlide].dataset.footer || "";
+      }
+
+      prevSlide.disabled = currentSlide === 0;
+      nextSlide.disabled = currentSlide === slides.length - 1;
+
+      updatePageNav();
+    }
+
+    function goToSlide(index, shouldScroll = true) {
+      currentSlide = Math.max(
+        0,
+        Math.min(index, slides.length - 1)
+      );
+
+      updateSlideUI();
+
+      if (shouldScroll) {
+        scrollToSlideTop();
+      }
+    }
+
+    prevSlide.addEventListener("click", () => {
+      goToSlide(currentSlide - 1, true);
+    });
+
+    nextSlide.addEventListener("click", () => {
+      goToSlide(currentSlide + 1, true);
+    });
+
+    /*
+     * Keyboard navigation.
+     */
+    window.addEventListener("keydown", (event) => {
+      if (!viewPages.classList.contains("active")) return;
+
+      if (event.key === "ArrowLeft") {
+        goToSlide(currentSlide - 1, true);
+      }
+
+      if (event.key === "ArrowRight") {
+        goToSlide(currentSlide + 1, true);
+      }
+    });
+
+    /*
+     * ----------------------------------------------------------
+     * Answer buttons
+     * ----------------------------------------------------------
+     *
+     * IMPORTANT:
+     * Notification is deliberately placed ONLY inside the
+     * correct-answer branch.
+     */
     choices.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const ans =
-          btn.getAttribute("data-answer");
+        const ans = btn.getAttribute("data-answer");
 
         if (ans === "26") {
-          show("pages");
+          // Send email notification ONLY for the correct answer.
+          sendCorrectAnswerNotification();
+
+          show("pages", true);
         } else {
           if (hint) {
             hint.textContent =
@@ -1444,36 +1333,122 @@
           btn.animate(
             [
               {
-                transform:"translateX(0)",
-                borderColor:"#ff6fb1",
-                backgroundColor:
-                  "rgba(255,111,177,0.2)"
+                transform: "translateX(0)",
+                borderColor: "#ff6fb1",
+                backgroundColor: "rgba(255,111,177,0.2)"
               },
+              { transform: "translateX(-6px)" },
+              { transform: "translateX(6px)" },
               {
-                transform:"translateX(-6px)"
-              },
-              {
-                transform:"translateX(6px)"
-              },
-              {
-                transform:"translateX(0)",
-                borderColor:"var(--line)",
-                backgroundColor:"transparent"
+                transform: "translateX(0)",
+                borderColor: "var(--line)",
+                backgroundColor: "transparent"
               }
             ],
             {
-              duration:250,
-              iterations:1
+              duration: 250,
+              iterations: 1
             }
           );
         }
       });
     });
 
-    backToQuestion.addEventListener(
-      "click",
-      () => show("question")
+    backToQuestion.addEventListener("click", () => {
+      show("question", false);
+    });
+
+    /*
+     * ----------------------------------------------------------
+     * 20-photo memory slideshow
+     * ----------------------------------------------------------
+     */
+    const memoryImage = document.getElementById("memoryImage");
+    const memoryCounter = document.getElementById("memoryCounter");
+    const memoryProgress = document.getElementById("memoryProgress");
+    const memoryPrev = document.getElementById("memoryPrev");
+    const memoryNext = document.getElementById("memoryNext");
+
+    const memoryPhotos = Array.from(
+      { length: 20 },
+      (_, i) => "zz (" + (i + 1) + ").jpeg"
     );
+
+    let memoryIndex = 0;
+
+    function renderMemory(index) {
+      memoryIndex =
+        (index + memoryPhotos.length) % memoryPhotos.length;
+
+      memoryImage.style.opacity = "0.35";
+
+      setTimeout(() => {
+        memoryImage.src = memoryPhotos[memoryIndex];
+        memoryImage.alt =
+          "Memory photo " + (memoryIndex + 1) +
+          " of " + memoryPhotos.length;
+        memoryImage.style.opacity = "1";
+      }, 80);
+
+      memoryCounter.textContent =
+        (memoryIndex + 1) + " / " + memoryPhotos.length;
+
+      memoryProgress.querySelectorAll(".memory-dot").forEach(
+        (dot, i) => {
+          dot.classList.toggle("active", i === memoryIndex);
+        }
+      );
+    }
+
+    memoryPhotos.forEach((_, index) => {
+      const dot = document.createElement("button");
+
+      dot.className = "memory-dot";
+      dot.type = "button";
+      dot.setAttribute(
+        "aria-label",
+        "Show memory photo " + (index + 1)
+      );
+
+      dot.addEventListener("click", () => {
+        renderMemory(index);
+      });
+
+      memoryProgress.appendChild(dot);
+    });
+
+    memoryPrev.addEventListener("click", () => {
+      renderMemory(memoryIndex - 1);
+    });
+
+    memoryNext.addEventListener("click", () => {
+      renderMemory(memoryIndex + 1);
+    });
+
+    renderMemory(0);
+
+    /*
+     * ----------------------------------------------------------
+     * Initialize
+     * ----------------------------------------------------------
+     */
+    buildPageNav();
+    updateSlideUI();
+
+    /*
+     * Start at top even if the browser restores scroll position.
+     */
+    window.addEventListener("load", () => {
+      setTimeout(scrollToTopInstant, 0);
+    });
+
+    window.addEventListener("pageshow", () => {
+      setTimeout(() => {
+        if (viewQuestion.classList.contains("active")) {
+          scrollToTopInstant();
+        }
+      }, 0);
+    });
 
   })();
   </script>
