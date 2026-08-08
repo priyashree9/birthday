@@ -501,6 +501,9 @@
       }
     }
   </style>
+
+  <!-- EmailJS: used only for the correct-answer notification -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -545,19 +548,19 @@
 
             <!-- PAGE 2: Correct answer / birthday welcome -->
             <div class="slide" data-footer="Yessss... more surprises 💛">
-              <div class="badge">✅ Correct! Intelligent girl as always😛!</div>
+              <div class="badge">✅ Correct!</div>
               <h1>Happy 26th Birthday Priyashree! ❤️✨</h1>
               <p class="tiny">✨💛✨</p>
               <p class="sub">Yessss! You just made me the happiest person alive! 🎉</p>
               <hr class="sep" style="width:100%;" />
               <p class="lead">
-                Welcome to your special birthday website, Priyashree.<br /><br />
-                <em> More surprises are waiting for you on the next pages; sit back and relax to enjoy this emotional, romantic ride ahead, mero Priyashree...</em> 🥺❤️
+                Welcome to your special birthday website.<br /><br />
+                <em>There are more surprises waiting for you...</em> 🥺❤️
               </p>
             </div>
 
             <!-- PAGE 3: Birthday photo -->
-            <div class="slide" data-footer="Your fav people in one frame 😉💛">
+            <div class="slide" data-footer="A little memory for you 💛">
               <h1 class="photo-title">Wish you a very Happiest 26th Birthday, Priyashree 🎂</h1>
               <p class="tiny">✨💛✨</p>
 
@@ -568,7 +571,7 @@
               />
 
               <p class="photo-caption">
-                Me and your favourite actor celebrating your birthday, Priyashree 😁🤍🎂
+                Me and our darling Prabhas celebrating your birthday, Priyashree 😁🤍🎂
               </p>
 
               <p class="photo-caption">
@@ -581,8 +584,8 @@
             </div>
 
             <!-- PAGE 4: 20-photo memory slideshow -->
-            <div class="slide" data-footer="Thanks again for making 20 children happy ❤️">
-              <h1 class="photo-title">Congratulations, you made 20 people happy this time... and no, not cows anymore 😛❤️</h1>
+            <div class="slide" data-footer="A little collection of memories ❤️">
+              <h1 class="photo-title">Our little memories ❤️</h1>
               <p class="tiny">✨❤️✨</p>
 
               <div class="memory-gallery" aria-label="20-photo memory slideshow">
@@ -623,8 +626,8 @@
             </div>
 
             <!-- PAGE 5: Birthday cake cutting video -->
-            <div class="slide text-page" data-footer="A beautiful birthday moment for you and 20 children 🎂❤️">
-              <h1 class="photo-title">20 Pure souls celebrating your birthday 🙏❤️</h1>
+            <div class="slide text-page" data-footer="A little birthday moment for you 🎂❤️">
+              <h1 class="photo-title">A little birthday moment for you ❤️</h1>
               <p class="tiny">✨❤️✨</p>
 
               <video
@@ -644,8 +647,8 @@
             </div>
 
             <!-- PAGE 6: Wishing video -->
-            <div class="slide text-page" data-footer="Birthday wishes for my Priyashree 💕">
-              <h1 class="photo-title">Best birthday wishes, just for you ❤️</h1>
+            <div class="slide text-page" data-footer="A little birthday wish for you 💕">
+              <h1 class="photo-title">A birthday wish, just for you ❤️</h1>
               <p class="tiny">✨❤️✨</p>
 
               <video
@@ -665,8 +668,8 @@
             </div>
 
             <!-- PAGE 7: Snacks distribution video -->
-            <div class="slide text-page" data-footer="Something sweet for the sweetest person ever I met ❤️">
-              <h1 class="photo-title">A little sweet treat on behalf of you, mero mayalu ❤️</h1>
+            <div class="slide text-page" data-footer="Something sweet for someone sweeter ❤️">
+              <h1 class="photo-title">Something sweet for someone sweeter ❤️</h1>
               <p class="tiny">✨❤️✨</p>
 
               <video
@@ -686,8 +689,8 @@
             </div>
 
             <!-- PAGE 8: Birthday song -->
-            <div class="slide text-page" data-footer="Our song 😉❤️">
-              <h1 class="photo-title">Now a song for my cutiee 😉❤️🎶</h1>
+            <div class="slide text-page" data-footer="A little song for you, Priyashree ❤️">
+              <h1 class="photo-title">A little song for you ❤️🎶</h1>
               <p class="tiny">✨🎵✨</p>
 
               <video
@@ -838,6 +841,76 @@
 
   <script>
   (function () {
+    /*
+     * ==============================================================
+     * CORRECT-ANSWER EMAIL NOTIFICATION
+     * ==============================================================
+     * This page is hosted on GitHub Pages, so it cannot send an email
+     * directly from HTML. EmailJS is used as the email service.
+     *
+     * Replace ONLY these 3 values with your EmailJS details:
+     *   EMAILJS_PUBLIC_KEY
+     *   EMAILJS_SERVICE_ID
+     *   EMAILJS_TEMPLATE_ID
+     *
+     * The email is triggered ONLY when the correct answer (26) is
+     * clicked on Page 1.
+     */
+    const EMAILJS_PUBLIC_KEY = "YOUR_EMAILJS_PUBLIC_KEY";
+    const EMAILJS_SERVICE_ID = "YOUR_EMAILJS_SERVICE_ID";
+    const EMAILJS_TEMPLATE_ID = "YOUR_EMAILJS_TEMPLATE_ID";
+
+    let correctAnswerNotificationSent = false;
+
+    if (
+      window.emailjs &&
+      EMAILJS_PUBLIC_KEY !== "YOUR_EMAILJS_PUBLIC_KEY"
+    ) {
+      emailjs.init({
+        publicKey: EMAILJS_PUBLIC_KEY
+      });
+    }
+
+    async function sendCorrectAnswerNotification() {
+      // Prevent duplicate notifications if the correct button is clicked
+      // repeatedly during the same page visit.
+      if (correctAnswerNotificationSent) return;
+
+      if (
+        !window.emailjs ||
+        EMAILJS_PUBLIC_KEY === "YOUR_EMAILJS_PUBLIC_KEY" ||
+        EMAILJS_SERVICE_ID === "YOUR_EMAILJS_SERVICE_ID" ||
+        EMAILJS_TEMPLATE_ID === "YOUR_EMAILJS_TEMPLATE_ID"
+      ) {
+        console.warn(
+          "Email notification is not configured. Add your EmailJS Public Key, Service ID and Template ID."
+        );
+        return;
+      }
+
+      correctAnswerNotificationSent = true;
+
+      try {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          {
+            message: "Priyashree clicked the correct answer (26)! ❤️",
+            answer: "26",
+            page: "Page 1",
+            timestamp: new Date().toLocaleString(),
+            user_agent: navigator.userAgent
+          }
+        );
+
+        console.log("Correct-answer notification sent successfully.");
+      } catch (error) {
+        // Don't interrupt the birthday page if the email service fails.
+        correctAnswerNotificationSent = false;
+        console.error("Could not send correct-answer notification:", error);
+      }
+    }
+
     const viewQuestion = document.getElementById("view-question");
     const viewPages = document.getElementById("view-pages");
     const hint = document.getElementById("hint");
@@ -1434,6 +1507,9 @@
           btn.getAttribute("data-answer");
 
         if (ans === "26") {
+          // Send notification only for the correct answer.
+          // Do not wait for the email before opening the birthday pages.
+          sendCorrectAnswerNotification();
           show("pages");
         } else {
           if (hint) {
