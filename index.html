@@ -17,7 +17,9 @@
       --shadow: 0 14px 50px rgba(0,0,0,.45);
       --radius: 18px;
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0; min-height:100vh;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -26,71 +28,141 @@
                   radial-gradient(900px 650px at 80% 30%, #4a235a 0%, transparent 55%),
                   linear-gradient(180deg, var(--bg1), var(--bg2));
     }
+
     .container{max-width:900px;margin:0 auto;padding:28px 16px 40px;}
+
     .hero{text-align:center;margin:18px 0 18px;}
-    h1{margin:0 0 10px;font-size:clamp(26px,4vw,44px);letter-spacing:.2px;}
-    .sub{margin:0;color:var(--muted);font-size:clamp(15px,2vw,18px);line-height:1.5;}
-    
+
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(26px,4vw,44px);
+      letter-spacing:.2px;
+    }
+
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:clamp(15px,2vw,18px);
+      line-height:1.5;
+    }
+
     .card{
-      margin:18px auto; padding:22px;
+      margin:18px auto;
+      padding:22px;
       border:1px solid var(--line);
       background:var(--card);
       box-shadow:var(--shadow);
       border-radius:var(--radius);
       backdrop-filter: blur(10px);
-      max-width: 500px;
-    }
-    .card.big{padding:26px; max-width: 600px;}
-    
-    /* User's custom math box styling */
-    .math-box {
-      font-family: Consolas, monospace;
-      text-align: left;
-      background: #00000025;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 20px 30px;
-      margin: 14px auto 24px;
-      width: fit-content;
-      font-size: 18px;
-      color: var(--text);
-    }
-    .math-box p {
-      margin: 8px 0;
-      letter-spacing: 1px;
-    }
-    .math-box p:first-child,
-    .math-box p:last-child {
-      margin-left: 22px;
-    }
-    .math-box hr {
-      border: 0;
-      border-top: 2px solid var(--accent2);
-      margin: 12px 0;
+      max-width:500px;
     }
 
-    .options{display:grid;grid-template-columns:1fr 1fr;gap:12px;justify-content:center;padding:14px 0 4px;}
-    .choice{
-      appearance:none; border:1px solid var(--line);
-      background:linear-gradient(180deg,#ffffff18,#ffffff08);
-      color:var(--text); padding:14px 18px; font-size:16px; font-weight: 600;
-      border-radius:14px; cursor:pointer; min-width:88px;
-      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+    .card.big{padding:26px;max-width:600px;}
+
+    .math-box{
+      font-family:Consolas,monospace;
+      text-align:left;
+      background:#00000025;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px 30px;
+      margin:14px auto 24px;
+      width:fit-content;
+      font-size:18px;
+      color:var(--text);
     }
-    .choice:hover{transform:translateY(-2px);border-color:#ffffff2c;box-shadow:0 10px 30px rgba(0,0,0,.25);}
+
+    .math-box p{
+      margin:8px 0;
+      letter-spacing:1px;
+    }
+
+    .math-box p:first-child,
+    .math-box p:last-child{
+      margin-left:22px;
+    }
+
+    .math-box hr{
+      border:0;
+      border-top:2px solid var(--accent2);
+      margin:12px 0;
+    }
+
+    .options{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      justify-content:center;
+      padding:14px 0 4px;
+    }
+
+    .choice{
+      appearance:none;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,#ffffff18,#ffffff08);
+      color:var(--text);
+      padding:14px 18px;
+      font-size:16px;
+      font-weight:600;
+      border-radius:14px;
+      cursor:pointer;
+      min-width:88px;
+      transition:transform .12s ease,border-color .12s ease,box-shadow .12s ease;
+    }
+
+    .choice:hover{
+      transform:translateY(-2px);
+      border-color:#ffffff2c;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+
     .choice:active{transform:translateY(0);}
-    .hint{text-align:center;min-height:22px;color:var(--accent2);margin:15px 0 0;font-weight:600;}
-    
-    .footer{text-align:center;margin-top:18px;color:#ffffff88;font-size:13px;}
+
+    .hint{
+      text-align:center;
+      min-height:22px;
+      color:var(--accent2);
+      margin:15px 0 0;
+      font-weight:600;
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:18px;
+      color:#ffffff88;
+      font-size:13px;
+    }
+
     .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 12px; border-radius:999px; font-weight:800;
-      background:#2dffb31a; border:1px solid #2dffb34d; color:#b9ffe6;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border-radius:999px;
+      font-weight:800;
+      background:#2dffb31a;
+      border:1px solid #2dffb34d;
+      color:#b9ffe6;
       margin-bottom:12px;
     }
-    .sep{border:0;border-top:1px solid var(--line);margin:18px 0;}
-    .lead{color:var(--muted);font-size:17px;line-height:1.55;}
-    .tiny{font-size: 15px;color: var(--muted);line-height: 1.6;}
+
+    .sep{
+      border:0;
+      border-top:1px solid var(--line);
+      margin:18px 0;
+    }
+
+    .lead{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.55;
+    }
+
+    .tiny{
+      font-size:15px;
+      color:var(--muted);
+      line-height:1.6;
+    }
 
     .birthday-photo{
       width:100%;
@@ -129,17 +201,9 @@
       box-shadow:0 10px 30px rgba(0,0,0,.16);
     }
 
-    .message-box p{
-      margin:0 0 18px;
-    }
-
-    .message-box p:last-child{
-      margin-bottom:0;
-    }
-
-    .message-box strong{
-      color:var(--text);
-    }
+    .message-box p{margin:0 0 18px;}
+    .message-box p:last-child{margin-bottom:0;}
+    .message-box strong{color:var(--text);}
 
     .signature{
       align-self:flex-start;
@@ -151,13 +215,8 @@
       margin:6px auto 0;
     }
 
-    .signature strong{
-      color:var(--accent);
-    }
-
-    .final-page{
-      min-height:60vh;
-    }
+    .signature strong{color:var(--accent);}
+    .final-page{min-height:60vh;}
 
     .slider-controls{
       display:flex;
@@ -186,6 +245,7 @@
       color:var(--muted);
       font-size:13px;
     }
+
     .page-nav{
       display:flex;
       justify-content:center;
@@ -233,67 +293,96 @@
       font-size:13px;
       line-height:30px;
     }
-@media (max-width: 480px){
-      .birthday-photo{max-width:100%;}
-      .message-box{padding:17px 16px;font-size:14px;line-height:1.6;}
-      .final-page{min-height:58vh;}
-    }
 
     /* --- Views / Slider --- */
     .view{display:none;}
     .view.active{display:block;}
     .card.big{display:flex;flex-direction:column;}
-    
+
     .slider{
       position:relative;
       overflow:hidden;
-      border-radius: calc(var(--radius) - 2px);
-      min-height: 40vh;
-      flex: 1;
+      border-radius:calc(var(--radius) - 2px);
+      min-height:40vh;
+      flex:1;
     }
+
     .track{
       display:flex;
-      transition: transform 380ms ease;
-      will-change: transform;
+      transition:transform 380ms ease;
+      will-change:transform;
       position:relative;
     }
+
     .slide{
       min-width:100%;
-      padding: 18px 6px;
+      padding:18px 6px;
       display:flex;
       flex-direction:column;
       justify-content:center;
-      align-items: center;
-      text-align: center;
-      gap: 10px;
+      align-items:center;
+      text-align:center;
+      gap:10px;
       position:relative;
-      animation: fadeIn 420ms ease both;
+      animation:fadeIn 420ms ease both;
     }
-    
+
     @keyframes fadeIn{
-      from{ opacity: 0; transform: translateY(6px); }
-      to{ opacity: 1; transform: translateY(0); }
+      from{opacity:0;transform:translateY(6px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    /* --- Page 5 Birthday Video --- */
+    .birthday-video{
+      width:100%;
+      max-width:680px;
+      display:block;
+      margin:10px auto 18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 14px 40px rgba(0,0,0,.35);
+      background:#000;
+    }
+
+    .romantic-quote{
+      width:100%;
+      max-width:680px;
+      padding:18px 22px;
+      margin:4px auto 14px;
+      text-align:center;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.7;
+      background:linear-gradient(180deg,#ff6fb112,#ffffff06);
+      border:1px solid #ff6fb14d;
+      border-radius:16px;
+    }
+
+    .romantic-quote p{margin:0 0 15px;}
+    .romantic-quote p:last-child{margin-bottom:0;}
+    .romantic-quote strong{color:var(--text);}
+
+    .video-note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:4px;
     }
 
     /* --- Confetti canvas --- */
     #confettiCanvas{
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0;
-      transition: opacity 160ms ease;
+      position:fixed;
+      inset:0;
+      width:100vw;
+      height:100vh;
+      pointer-events:none;
+      z-index:9999;
+      opacity:0;
+      transition:opacity 160ms ease;
     }
-    
-    @media (max-width: 480px){
-      .options{grid-template-columns: 1fr;}
-    }
-  
+
     /* ---------- 20-photo memory gallery ---------- */
     .memory-gallery{
-      width:min(100%, 680px);
+      width:min(100%,680px);
       margin:0 auto;
       position:relative;
     }
@@ -397,8 +486,23 @@
       .memory-arrow.right{right:8px}
     }
 
+    @media (max-width:480px){
+      .birthday-photo{max-width:100%;}
+      .message-box{
+        padding:17px 16px;
+        font-size:14px;
+        line-height:1.6;
+      }
+      .final-page{min-height:58vh;}
+      .options{grid-template-columns:1fr;}
+      .romantic-quote{
+        padding:16px 17px;
+        font-size:14px;
+      }
+    }
   </style>
 </head>
+
 <body>
   <main class="container">
 
@@ -410,8 +514,6 @@
       </header>
 
       <section class="card">
-        
-        <!-- Updated Math Box -->
         <div class="math-box">
           <p>mein terah = 13</p>
           <p>+ mein terah = 13</p>
@@ -447,7 +549,7 @@
               <h1>Happy 26th Birthday Priyashree! ❤️✨</h1>
               <p class="tiny">✨💛✨</p>
               <p class="sub">Yessss! You just made me the happiest person alive! 🎉</p>
-              <hr class="sep" style="width: 100%;" />
+              <hr class="sep" style="width:100%;" />
               <p class="lead">
                 Welcome to your special birthday website.<br /><br />
                 <em>There are more surprises waiting for you...</em> 🥺❤️
@@ -459,7 +561,6 @@
               <h1 class="photo-title">Wish you a very Happiest 26th Birthday, Priyashree 🎂</h1>
               <p class="tiny">✨💛✨</p>
 
-              <!-- This file is expected to be in the same folder as index.html -->
               <img
                 class="birthday-photo"
                 src="priyashree_26.png"
@@ -478,6 +579,7 @@
                 And may your smile stay exactly like this and light up this entire world... forever 💛
               </p>
             </div>
+
             <!-- PAGE 4: 20-photo memory slideshow -->
             <div class="slide" data-footer="A little collection of memories ❤️">
               <h1 class="photo-title">Our little memories ❤️</h1>
@@ -485,10 +587,12 @@
 
               <div class="memory-gallery" aria-label="20-photo memory slideshow">
                 <div class="memory-frame">
-                  <button id="memoryPrev"
-                          class="memory-arrow left"
-                          type="button"
-                          aria-label="Previous photo">←</button>
+                  <button
+                    id="memoryPrev"
+                    class="memory-arrow left"
+                    type="button"
+                    aria-label="Previous photo"
+                  >←</button>
 
                   <img
                     id="memoryImage"
@@ -498,26 +602,80 @@
                     draggable="false"
                   />
 
-                  <button id="memoryNext"
-                          class="memory-arrow right"
-                          type="button"
-                          aria-label="Next photo">→</button>
+                  <button
+                    id="memoryNext"
+                    class="memory-arrow right"
+                    type="button"
+                    aria-label="Next photo"
+                  >→</button>
                 </div>
 
                 <div id="memoryCounter" class="memory-counter" aria-live="polite">
                   1 / 20
                 </div>
 
-                <div id="memoryProgress"
-                     class="memory-progress"
-                     aria-label="Select a memory photo"></div>
+                <div
+                  id="memoryProgress"
+                  class="memory-progress"
+                  aria-label="Select a memory photo"
+                ></div>
               </div>
             </div>
 
+            <!-- PAGE 5: Birthday cake cutting video -->
+            <div class="slide text-page" data-footer="A little birthday moment for you 🎂❤️">
+              <h1 class="photo-title">
+                A little birthday moment for you ❤️
+              </h1>
 
+              <p class="tiny">✨❤️✨</p>
 
+              <video
+                id="birthdayVideo"
+                class="birthday-video"
+                src="video_cake_cutting.mp4"
+                controls
+                playsinline
+                preload="metadata"
+              ></video>
 
-            <!-- PAGE 5 -->
+              <div class="romantic-quote">
+                <p>
+                  <strong>Happy Birthday, Priyashree ❤️</strong>
+                </p>
+
+                <p>
+                  Some people come into our lives and simply make
+                  everything a little brighter... and you are one of
+                  those beautiful people. ✨
+                </p>
+
+                <p>
+                  May this birthday bring you countless reasons to smile,
+                  beautiful memories to cherish, and all the happiness
+                  your heart can hold. 💛
+                </p>
+
+                <p>
+                  If I could give you one thing for your birthday,
+                  it would be the ability to see yourself through my eyes...
+                  so you could understand just how special you truly are. ❤️
+                </p>
+
+                <p>
+                  <strong>
+                    Happy Birthday to someone who makes my world
+                    a little more beautiful just by being in it. 🤍
+                  </strong>
+                </p>
+              </div>
+
+              <p class="video-note">
+                🎂 A little memory from your special day... ❤️
+              </p>
+            </div>
+
+            <!-- PAGE 6 -->
             <div class="slide text-page" data-footer="One more heartfelt page ❤️">
               <h1 class="photo-title">For you, always ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -543,7 +701,7 @@
               </div>
             </div>
 
-            <!-- PAGE 6 -->
+            <!-- PAGE 7 -->
             <div class="slide text-page" data-footer="Niiice... you’re almost there Priyashree 💋">
               <h1 class="photo-title">Happy Birthday, my favorite soul ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -565,7 +723,7 @@
               </div>
             </div>
 
-            <!-- PAGE 7 -->
+            <!-- PAGE 8 -->
             <div class="slide text-page" data-footer="Last one... read slowly 💋">
               <h1 class="photo-title">My heart’s truth ❤️</h1>
               <p class="tiny">✨❤️✨</p>
@@ -596,7 +754,7 @@
               </div>
             </div>
 
-            <!-- PAGE 8 -->
+            <!-- PAGE 9 -->
             <div class="slide text-page final-page" data-footer="That’s it Priyashree 💋">
               <h1 class="photo-title">Okay okay... now the final one 😊💌</h1>
               <p class="tiny">✨❤️✨</p>
@@ -625,22 +783,26 @@
           <button id="prevSlide" class="choice slider-btn" aria-label="Previous page">←</button>
           <button id="nextSlide" class="choice slider-btn" aria-label="Next page">→</button>
         </div>
-        <div id="slideFooter" class="slide-footer" aria-live="polite"></div>
 
+        <div id="slideFooter" class="slide-footer" aria-live="polite"></div>
 
       </section>
 
       <footer class="footer">
-        <button id="backToQuestion" class="choice" style="min-width:auto; margin-top: 10px;">← Back to riddle</button>
+        <button
+          id="backToQuestion"
+          class="choice"
+          style="min-width:auto;margin-top:10px;"
+        >← Back to riddle</button>
       </footer>
     </section>
+
     <!-- GLOBAL PAGE NAVIGATION -->
     <nav id="globalPageNav" class="page-nav" aria-label="Navigate to page"></nav>
 
   </main>
 
   <!-- Full-screen confetti overlay -->
-
   <canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
   <script>
@@ -657,17 +819,23 @@
     const nextSlide = document.getElementById("nextSlide");
     const slideFooter = document.getElementById("slideFooter");
     const globalPageNav = document.getElementById("globalPageNav");
+    const birthdayVideo = document.getElementById("birthdayVideo");
+
     let currentSlide = 0;
 
-    // Page 1 = riddle. Page 4 = 20-photo memory slideshow. Pages 2..N = birthday pages.
+    // Page 1 = riddle.
+    // Page 4 = 20-photo memory slideshow.
+    // Page 5 = birthday cake-cutting video.
+    // Pages 2..N = birthday pages.
     const totalPages = slides.length + 1;
 
     // ---------- Numbered page navigation ----------
     function buildPageNav() {
       globalPageNav.innerHTML = "";
 
-      // Show up to 10 page numbers. If there are more, use an ellipsis.
+      // Show up to 20 page numbers.
       const maxVisible = 20;
+
       const visiblePages = totalPages <= maxVisible
         ? Array.from({length: totalPages}, (_, i) => i + 1)
         : Array.from({length: maxVisible}, (_, i) => i + 1);
@@ -705,7 +873,10 @@
         : 1;
 
       globalPageNav.querySelectorAll(".page-number").forEach((btn) => {
-        btn.classList.toggle("active", Number(btn.textContent) === currentPage);
+        btn.classList.toggle(
+          "active",
+          Number(btn.textContent) === currentPage
+        );
       });
     }
 
@@ -728,18 +899,62 @@
 
     function goToSlide(index) {
       currentSlide = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      track.style.transform =
+        `translateX(-${currentSlide * 100}%)`;
 
       if (slideFooter) {
-        slideFooter.textContent = slides[currentSlide].dataset.footer || "";
+        slideFooter.textContent =
+          slides[currentSlide].dataset.footer || "";
+      }
+
+      /*
+       * PAGE 5 VIDEO
+       *
+       * Page 5 corresponds to slider index 3:
+       * Page 2 = index 0
+       * Page 3 = index 1
+       * Page 4 = index 2
+       * Page 5 = index 3
+       */
+      if (birthdayVideo) {
+        if (currentSlide === 3) {
+          birthdayVideo.currentTime = 0;
+
+          /*
+           * The page navigation is triggered by a user click,
+           * so browsers generally allow playback with audio.
+           *
+           * No "muted" attribute is used, so the video's
+           * original audio remains audible.
+           */
+          const playPromise = birthdayVideo.play();
+
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              /*
+               * Some browsers may still block autoplay with sound.
+               * In that case the native video controls remain available
+               * and the user can press Play manually.
+               */
+            });
+          }
+        } else {
+          birthdayVideo.pause();
+          birthdayVideo.currentTime = 0;
+        }
       }
 
       updatePageNav();
     }
 
-    prevSlide.addEventListener("click", () => goToSlide(currentSlide - 1));
-    nextSlide.addEventListener("click", () => goToSlide(currentSlide + 1));
+    prevSlide.addEventListener("click", () => {
+      goToSlide(currentSlide - 1);
+    });
 
+    nextSlide.addEventListener("click", () => {
+      goToSlide(currentSlide + 1);
+    });
 
     // ---------- 20-photo memory slideshow ----------
     const memoryImages = Array.from(
@@ -759,9 +974,15 @@
 
     memoryImages.forEach((_, index) => {
       const dot = document.createElement("button");
-      dot.className = "memory-dot" + (index === 0 ? " active" : "");
+
+      dot.className =
+        "memory-dot" + (index === 0 ? " active" : "");
+
       dot.type = "button";
-      dot.setAttribute("aria-label", `Show memory photo ${index + 1}`);
+      dot.setAttribute(
+        "aria-label",
+        `Show memory photo ${index + 1}`
+      );
 
       dot.addEventListener("click", () => {
         showMemory(index);
@@ -772,19 +993,26 @@
     });
 
     function showMemory(index, animate = true) {
-      memoryIndex = (index + memoryImages.length) % memoryImages.length;
+      memoryIndex =
+        (index + memoryImages.length) % memoryImages.length;
 
       const changeImage = () => {
         memoryImage.src = memoryImages[memoryIndex];
+
         memoryImage.alt =
           `Memory photo ${memoryIndex + 1} of ${memoryImages.length}`;
 
         memoryCounter.textContent =
           `${memoryIndex + 1} / ${memoryImages.length}`;
 
-        memoryProgress.querySelectorAll(".memory-dot").forEach((dot, i) => {
-          dot.classList.toggle("active", i === memoryIndex);
-        });
+        memoryProgress
+          .querySelectorAll(".memory-dot")
+          .forEach((dot, i) => {
+            dot.classList.toggle(
+              "active",
+              i === memoryIndex
+            );
+          });
 
         memoryImage.style.opacity = "1";
       };
@@ -801,8 +1029,7 @@
       clearInterval(memoryTimer);
 
       memoryTimer = setInterval(() => {
-        // Overall Page 4 corresponds to slider index 2:
-        // Page 2=index 0, Page 3=index 1, Page 4=index 2.
+        // Page 4 corresponds to slider index 2.
         if (
           !memoryPaused &&
           viewPages.classList.contains("active") &&
@@ -834,28 +1061,42 @@
     // Swipe support on phones/tablets.
     let memoryTouchStartX = 0;
 
-    memoryImage.addEventListener("touchstart", (event) => {
-      memoryTouchStartX = event.changedTouches[0].clientX;
-    }, { passive: true });
+    memoryImage.addEventListener(
+      "touchstart",
+      (event) => {
+        memoryTouchStartX =
+          event.changedTouches[0].clientX;
+      },
+      { passive:true }
+    );
 
-    memoryImage.addEventListener("touchend", (event) => {
-      const deltaX =
-        event.changedTouches[0].clientX - memoryTouchStartX;
+    memoryImage.addEventListener(
+      "touchend",
+      (event) => {
+        const deltaX =
+          event.changedTouches[0].clientX -
+          memoryTouchStartX;
 
-      if (Math.abs(deltaX) > 45) {
-        showMemory(memoryIndex + (deltaX < 0 ? 1 : -1));
-        restartMemoryTimer();
-      }
-    }, { passive: true });
+        if (Math.abs(deltaX) > 45) {
+          showMemory(
+            memoryIndex + (deltaX < 0 ? 1 : -1)
+          );
 
-    // Preload the remaining photos for smoother automatic transitions.
+          restartMemoryTimer();
+        }
+      },
+      { passive:true }
+    );
+
+    // Preload the remaining photos for smoother transitions.
     memoryImages.slice(1).forEach((src) => {
       const img = new Image();
       img.src = src;
     });
 
     showMemory(0, false);
-    // Wait 3 seconds before starting the automatic slideshow
+
+    // Wait 3 seconds before starting the automatic slideshow.
     setTimeout(() => {
       restartMemoryTimer();
     }, 3000);
@@ -865,41 +1106,81 @@
       const canvas = document.getElementById("confettiCanvas");
       const ctx = canvas.getContext("2d");
 
-      let W = 0, H = 0, dpr = 1;
+      let W = 0;
+      let H = 0;
+      let dpr = 1;
       let particles = [];
       let raf = null;
       let running = false;
 
       function resize() {
-        dpr = Math.max(1, window.devicePixelRatio || 1);
-        canvas.width = Math.floor(window.innerWidth * dpr);
-        canvas.height = Math.floor(window.innerHeight * dpr);
-        canvas.style.width = window.innerWidth + "px";
-        canvas.style.height = window.innerHeight + "px";
+        dpr =
+          Math.max(1, window.devicePixelRatio || 1);
 
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        canvas.width =
+          Math.floor(window.innerWidth * dpr);
+
+        canvas.height =
+          Math.floor(window.innerHeight * dpr);
+
+        canvas.style.width =
+          window.innerWidth + "px";
+
+        canvas.style.height =
+          window.innerHeight + "px";
+
+        ctx.setTransform(
+          dpr, 0, 0, dpr, 0, 0
+        );
+
         W = window.innerWidth;
         H = window.innerHeight;
       }
 
-      function rand(min, max){ return Math.random() * (max - min) + min; }
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
 
-      const colors = ["#ffcc66", "#ff6fb1", "#b9ffe6", "#ffffff", "#c9cdef", "#ffd1e8", "#ffe7a3"];
+      const colors = [
+        "#ffcc66",
+        "#ff6fb1",
+        "#b9ffe6",
+        "#ffffff",
+        "#c9cdef",
+        "#ffd1e8",
+        "#ffe7a3"
+      ];
 
       function makeParticle(x, y, angleRad, speed) {
-        const isStreamer = Math.random() < 0.22;
-        const w = isStreamer ? rand(2, 4) : rand(4, 8);
-        const h = isStreamer ? rand(18, 34) : rand(6, 12);
+        const isStreamer =
+          Math.random() < 0.22;
+
+        const w = isStreamer
+          ? rand(2, 4)
+          : rand(4, 8);
+
+        const h = isStreamer
+          ? rand(18, 34)
+          : rand(6, 12);
 
         return {
-          x, y,
-          vx: Math.cos(angleRad) * speed + rand(-0.6, 0.6),
-          vy: Math.sin(angleRad) * speed + rand(-0.6, 0.6),
+          x,
+          y,
+          vx:
+            Math.cos(angleRad) * speed +
+            rand(-0.6, 0.6),
+          vy:
+            Math.sin(angleRad) * speed +
+            rand(-0.6, 0.6),
           g: rand(0.12, 0.18),
           rot: rand(0, Math.PI * 2),
           vr: rand(-0.18, 0.18),
-          w, h,
-          color: colors[(Math.random() * colors.length) | 0],
+          w,
+          h,
+          color:
+            colors[
+              (Math.random() * colors.length) | 0
+            ],
           life: rand(160, 240),
           age: 0,
           drag: rand(0.985, 0.995)
@@ -908,16 +1189,27 @@
 
       function drawParticle(p) {
         ctx.save();
+
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rot);
         ctx.fillStyle = p.color;
-        ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+        ctx.fillRect(
+          -p.w / 2,
+          -p.h / 2,
+          p.w,
+          p.h
+        );
+
         ctx.restore();
       }
 
       function step() {
         ctx.clearRect(0, 0, W, H);
-        particles = particles.filter(p => p.age < p.life);
+
+        particles =
+          particles.filter(
+            (p) => p.age < p.life
+          );
 
         for (const p of particles) {
           p.vx *= p.drag;
@@ -928,18 +1220,29 @@
           p.rot += p.vr;
           p.age++;
 
-          const t = 1 - (p.age / p.life);
-          ctx.globalAlpha = Math.max(0, Math.min(1, t));
+          const t =
+            1 - p.age / p.life;
+
+          ctx.globalAlpha =
+            Math.max(
+              0,
+              Math.min(1, t)
+            );
+
           drawParticle(p);
           ctx.globalAlpha = 1;
         }
 
-        if (particles.length) raf = requestAnimationFrame(step);
-        else stop();
+        if (particles.length) {
+          raf = requestAnimationFrame(step);
+        } else {
+          stop();
+        }
       }
 
       function start() {
         if (running) return;
+
         running = true;
         canvas.style.opacity = "1";
         raf = requestAnimationFrame(step);
@@ -948,85 +1251,175 @@
       function stop() {
         running = false;
         canvas.style.opacity = "0";
-        if (raf) cancelAnimationFrame(raf);
+
+        if (raf) {
+          cancelAnimationFrame(raf);
+        }
+
         raf = null;
         particles = [];
       }
 
       function burstCannons() {
         resize();
+
         const leftX = W * 0.10;
         const rightX = W * 0.90;
         const y = H * 0.82;
 
-        function emit(x, baseAngle, spread, count) {
+        function emit(
+          x,
+          baseAngle,
+          spread,
+          count
+        ) {
           for (let i = 0; i < count; i++) {
-            const a = baseAngle + rand(-spread, spread);
-            const speed = rand(7.5, 12.5);
-            particles.push(makeParticle(x + rand(-10, 10), y + rand(-8, 8), a, speed));
+            const a =
+              baseAngle +
+              rand(-spread, spread);
+
+            const speed =
+              rand(7.5, 12.5);
+
+            particles.push(
+              makeParticle(
+                x + rand(-10, 10),
+                y + rand(-8, 8),
+                a,
+                speed
+              )
+            );
           }
         }
 
-        const deg = (d) => d * Math.PI / 180;
-        emit(leftX, deg(-55), deg(18), 95);
-        emit(rightX, deg(-125), deg(18), 95);
+        const deg = (d) =>
+          d * Math.PI / 180;
+
+        emit(
+          leftX,
+          deg(-55),
+          deg(18),
+          95
+        );
+
+        emit(
+          rightX,
+          deg(-125),
+          deg(18),
+          95
+        );
 
         const centerX = W * 0.50;
-        emit(centerX, deg(-90), deg(20), 45);
+
+        emit(
+          centerX,
+          deg(-90),
+          deg(20),
+          45
+        );
 
         start();
       }
 
-      window.addEventListener("resize", () => { if (running) resize(); });
+      window.addEventListener(
+        "resize",
+        () => {
+          if (running) resize();
+        }
+      );
 
       return { burstCannons };
     })();
-    // -------------------------------------------------------
 
+    // ---------- Show / hide views ----------
     function show(which, celebrate = true) {
       if (which === "pages") {
         viewQuestion.classList.remove("active");
         viewPages.classList.add("active");
-        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        window.scrollTo({
+          top:0,
+          behavior:"smooth"
+        });
 
         if (celebrate) {
           confetti.burstCannons();
-          setTimeout(() => confetti.burstCannons(), 500);
+
+          setTimeout(() => {
+            confetti.burstCannons();
+          }, 500);
         }
       } else {
         viewPages.classList.remove("active");
         viewQuestion.classList.add("active");
-        if (hint) hint.textContent = "";
-        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        // Stop the birthday video when returning to the riddle.
+        if (birthdayVideo) {
+          birthdayVideo.pause();
+          birthdayVideo.currentTime = 0;
+        }
+
+        if (hint) {
+          hint.textContent = "";
+        }
+
+        window.scrollTo({
+          top:0,
+          behavior:"smooth"
+        });
       }
 
       updatePageNav();
     }
 
-    // Answer buttons Logic
+    // ---------- Answer buttons ----------
     choices.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const ans = btn.getAttribute("data-answer");
-        
+        const ans =
+          btn.getAttribute("data-answer");
+
         if (ans === "26") {
           show("pages");
         } else {
-          if (hint) hint.textContent = "Hehe not quite! Try again, Priyashree 💕";
-          // Shake animation for incorrect answer
+          if (hint) {
+            hint.textContent =
+              "Hehe not quite! Try again, Priyashree 💕";
+          }
+
           btn.animate(
             [
-              { transform: "translateX(0)", borderColor: "#ff6fb1", backgroundColor: "rgba(255,111,177,0.2)" },
-              { transform: "translateX(-6px)" },
-              { transform: "translateX(6px)" },
-              { transform: "translateX(0)", borderColor: "var(--line)", backgroundColor: "transparent" }
+              {
+                transform:"translateX(0)",
+                borderColor:"#ff6fb1",
+                backgroundColor:
+                  "rgba(255,111,177,0.2)"
+              },
+              {
+                transform:"translateX(-6px)"
+              },
+              {
+                transform:"translateX(6px)"
+              },
+              {
+                transform:"translateX(0)",
+                borderColor:"var(--line)",
+                backgroundColor:"transparent"
+              }
             ],
-            { duration: 250, iterations: 1 }
+            {
+              duration:250,
+              iterations:1
+            }
           );
         }
       });
     });
 
-    backToQuestion.addEventListener("click", () => show("question"));
+    backToQuestion.addEventListener(
+      "click",
+      () => show("question")
+    );
+
   })();
   </script>
 </body>
